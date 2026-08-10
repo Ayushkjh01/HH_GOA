@@ -1,4 +1,4 @@
-// Canvas Rendering Engine for HH Goa 2026 — High-Contrast, Rich Watermark & Illustrated Placeholder Artwork
+// Canvas Rendering Engine for HH Goa 2026 — Goan Beach Adventures & Rich Visual Watermarks
 
 export interface RenderOptionsFormatA {
   image?: HTMLImageElement | HTMLCanvasElement;
@@ -41,14 +41,23 @@ const COLOR_SUN_GOLD = "#F5C242";
 const COLOR_CHARCOAL = "#0B1426";
 const COLOR_WHITE = "#FFFFFF";
 
-// Pre-loaded Scenery Image Cache
+// Pre-loaded Scenery & Sea Adventure Image Cache
 let cachedSceneryImg: HTMLImageElement | null = null;
+let cachedSeaAdv1Img: HTMLImageElement | null = null;
+let cachedSeaAdv2Img: HTMLImageElement | null = null;
+
 if (typeof window !== "undefined") {
   const img = new Image();
   img.src = "/goan_beach_town_bg.jpg";
-  img.onload = () => {
-    cachedSceneryImg = img;
-  };
+  img.onload = () => { cachedSceneryImg = img; };
+
+  const adv1 = new Image();
+  adv1.src = "/sea_adventure_1.jpg";
+  adv1.onload = () => { cachedSeaAdv1Img = adv1; };
+
+  const adv2 = new Image();
+  adv2.src = "/sea_adventure_2.jpg";
+  adv2.onload = () => { cachedSeaAdv2Img = adv2; };
 }
 
 // Draw crop image to canvas with cover/pan/zoom
@@ -244,116 +253,78 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.restore();
 }
 
-// Helper 5: Rich Azulejo Watermark Pattern inside White Panels (Removes Blank Space!)
+// Helper 5: Sea Adventures Beach Life Watermark inside White Content Panels
 function drawAzulejoPanelWatermark(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number) {
   ctx.save();
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, 24);
   ctx.clip();
 
-  ctx.strokeStyle = "rgba(13, 43, 82, 0.06)";
-  ctx.lineWidth = 1.5;
-
-  // Diagonal Watermark Grid Lines
-  const step = 40;
-  for (let i = -h; i < w + h; i += step) {
-    ctx.beginPath();
-    ctx.moveTo(x + i, y);
-    ctx.lineTo(x + i + h, y + h);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(x + i, y + h);
-    ctx.lineTo(x + i + h, y);
-    ctx.stroke();
+  // If Sea Adventure Illustration 1 is loaded, draw it as a soft, vibrant watermark
+  if (cachedSeaAdv1Img && cachedSeaAdv1Img.complete && cachedSeaAdv1Img.naturalWidth > 0) {
+    ctx.globalAlpha = 0.16; // Soft watermark opacity
+    ctx.drawImage(cachedSeaAdv1Img, x + w - 320, y - 20, 340, h + 40);
+    ctx.globalAlpha = 1.0;
+  } else {
+    // Subtle fallback linework
+    ctx.strokeStyle = "rgba(13, 43, 82, 0.06)";
+    ctx.lineWidth = 1.5;
+    const step = 40;
+    for (let i = -h; i < w + h; i += step) {
+      ctx.beginPath();
+      ctx.moveTo(x + i, y);
+      ctx.lineTo(x + i + h, y + h);
+      ctx.stroke();
+    }
   }
-
-  // Goan Balcão Church Arch Silhouette Watermark on Right Side of Panel
-  ctx.strokeStyle = "rgba(166, 58, 43, 0.08)";
-  ctx.lineWidth = 2;
-  const archX = x + w - 120;
-  const archY = y + h - 10;
-  ctx.beginPath();
-  ctx.moveTo(archX - 60, archY);
-  ctx.lineTo(archX - 60, archY - 140);
-  ctx.quadraticCurveTo(archX, archY - 210, archX + 60, archY - 140);
-  ctx.lineTo(archX + 60, archY);
-  ctx.stroke();
 
   ctx.restore();
 }
 
-// Helper 6: Rich Illustrated Empty Photo Placeholder (Replaces Plain Blank Square!)
+// Helper 6: Rich Illustrated Sea Adventure Empty Photo Placeholder
 function drawIllustratedPhotoPlaceholder(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, isCircle = false) {
   ctx.save();
-
-  // Background Fill
-  const bgGrad = ctx.createLinearGradient(x, y, x, y + h);
-  bgGrad.addColorStop(0, "#FFF9EE");
-  bgGrad.addColorStop(1, "#F5E9D0");
-  ctx.fillStyle = bgGrad;
 
   if (isCircle) {
     ctx.beginPath();
     ctx.arc(x + w / 2, y + h / 2, w / 2, 0, Math.PI * 2);
-    ctx.fill();
     ctx.clip();
   } else {
-    ctx.fillRect(x, y, w, h);
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 18);
+    ctx.clip();
   }
 
   const cx = x + w / 2;
   const cy = y + h / 2;
 
-  // Background Sun Disk Watermark
-  ctx.fillStyle = "rgba(245, 194, 66, 0.35)";
-  ctx.beginPath();
-  ctx.arc(cx, cy - 25, 45, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Line-Art Palm Canopy Vector inside Placeholder
-  ctx.strokeStyle = COLOR_DEEP_BLUE;
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.moveTo(cx - 30, cy + 40);
-  ctx.quadraticCurveTo(cx - 15, cy - 20, cx, cy - 40);
-  ctx.stroke();
-
-  // Palm Leaves
-  ctx.strokeStyle = COLOR_AZULEJO_BLUE;
-  ctx.lineWidth = 2;
-  const frondAngles = [-1.6, -0.9, -0.2, 0.5, 1.2];
-  frondAngles.forEach((a) => {
-    ctx.save();
-    ctx.translate(cx, cy - 40);
-    ctx.rotate(a);
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.quadraticCurveTo(25, -15, 40, 10);
-    ctx.stroke();
-    ctx.restore();
-  });
-
-  // Red Coconuts
-  ctx.fillStyle = COLOR_VIVID_RED;
-  ctx.beginPath();
-  ctx.arc(cx - 4, cy - 36, 5, 0, Math.PI * 2);
-  ctx.arc(cx + 4, cy - 38, 5.5, 0, Math.PI * 2);
-  ctx.fill();
+  // Draw Sea Adventure 2 Image (Woman, Man & Child Beach Fun at Sunset)
+  if (cachedSeaAdv2Img && cachedSeaAdv2Img.complete && cachedSeaAdv2Img.naturalWidth > 0) {
+    ctx.drawImage(cachedSeaAdv2Img, x, y, w, h);
+    // Darkening Overlay for text readability
+    ctx.fillStyle = "rgba(13, 43, 82, 0.25)";
+    ctx.fillRect(x, y, w, h);
+  } else {
+    const bgGrad = ctx.createLinearGradient(x, y, x, y + h);
+    bgGrad.addColorStop(0, "#FFF9EE");
+    bgGrad.addColorStop(1, "#F5E9D0");
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(x, y, w, h);
+  }
 
   // Camera / Upload Badge Box
-  const badgeW = Math.min(w - 40, 220);
-  const badgeH = 44;
+  const badgeW = Math.min(w - 40, 230);
+  const badgeH = 46;
   const badgeX = cx - badgeW / 2;
-  const badgeY = cy + 25;
+  const badgeY = cy + 20;
 
   ctx.fillStyle = COLOR_WHITE;
   ctx.strokeStyle = COLOR_DEEP_BLUE;
-  ctx.lineWidth = 2;
-  ctx.shadowColor = "rgba(13, 43, 82, 0.15)";
-  ctx.shadowBlur = 10;
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.35)";
+  ctx.shadowBlur = 12;
   ctx.beginPath();
-  ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 22);
+  ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 23);
   ctx.fill();
   ctx.stroke();
 
@@ -601,7 +572,7 @@ export function renderFormatB(
   ctx.stroke();
   ctx.restore();
 
-  // User Photo Content or Illustrated Placeholder
+  // User Photo Content or Illustrated Sea Adventure Placeholder
   ctx.save();
   ctx.beginPath();
   ctx.roundRect(photoX, photoY, photoSize, photoSize, 18);
@@ -624,7 +595,7 @@ export function renderFormatB(
   }
   ctx.restore();
 
-  // HIGH-CONTRAST PANEL WITH AZULEJO & ARCH WATERMARK (REMOVES BLANK WHITE SPACE!)
+  // HIGH-CONTRAST PANEL WITH SEA ADVENTURE WATERMARK (REMOVES BLANK WHITE SPACE!)
   const contentX = photoX + photoSize + 35;
   const panelW = width - contentX - 55;
   const panelH = 375;
@@ -642,7 +613,7 @@ export function renderFormatB(
   ctx.stroke();
   ctx.restore();
 
-  // Render Rich Watermarks inside Info Panel
+  // Render Rich Sea Adventure Watermark inside Info Panel
   drawAzulejoPanelWatermark(ctx, contentX, panelY, panelW, panelH);
 
   // Builder Info Details inside Panel
@@ -848,7 +819,7 @@ export function renderFormatC(
     ctx.stroke();
     ctx.restore();
 
-    // Render Panel Watermark
+    // Render Panel Sea Adventure Watermark
     drawAzulejoPanelWatermark(ctx, cardX, cardY, cardWidth, cardHeight);
 
     const pSize = memberCount === 2 ? 220 : 190;
