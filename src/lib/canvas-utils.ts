@@ -270,9 +270,9 @@ export function renderFormatA(
 
   // 4-Corner Azulejo Ceramic Rosettes
   drawAzulejoCornerRosette(ctx, 25, 25, 80, false, false);
-  drawAzulejoCornerRosette(ctx, size - 105, 25, 80, true, false);
-  drawAzulejoCornerRosette(ctx, 25, size - 105, 80, false, true);
-  drawAzulejoCornerRosette(ctx, size - 105, size - 105, 80, true, true);
+  drawAzulejoCornerRosette(ctx, size - 25, 25, 80, true, false);
+  drawAzulejoCornerRosette(ctx, 25, size - 25, 80, false, true);
+  drawAzulejoCornerRosette(ctx, size - 25, size - 25, 80, true, true);
 
   // Line-Art Palm Canopies
   drawLineArtPalmCanopy(ctx, 85, size - 40, 1.3, COLOR_DEEP_BLUE, false);
@@ -439,9 +439,9 @@ export function renderFormatB(
 
   // Corner Azulejo Rosettes
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
-  drawAzulejoCornerRosette(ctx, width - 70, 20, 50, true, false);
-  drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
-  drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
+  drawAzulejoCornerRosette(ctx, width - 20, 20, 50, true, false);
+  drawAzulejoCornerRosette(ctx, 20, height - 20, 50, false, true);
+  drawAzulejoCornerRosette(ctx, width - 20, height - 20, 50, true, true);
 
   // Outer Border
   ctx.strokeStyle = COLOR_DEEP_BLUE;
@@ -658,9 +658,9 @@ export function renderFormatC(
 
   // Corner Azulejo Rosettes
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
-  drawAzulejoCornerRosette(ctx, width - 70, 20, 50, true, false);
-  drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
-  drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
+  drawAzulejoCornerRosette(ctx, width - 20, 20, 50, true, false);
+  drawAzulejoCornerRosette(ctx, 20, height - 20, 50, false, true);
+  drawAzulejoCornerRosette(ctx, width - 20, height - 20, 50, true, true);
 
   // Outer Border
   ctx.strokeStyle = COLOR_DEEP_BLUE;
