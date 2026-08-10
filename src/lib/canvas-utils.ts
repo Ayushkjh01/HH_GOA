@@ -1,4 +1,4 @@
-// Canvas Rendering Engine for HH Goa 2026 — Goan Portuguese-Heritage Aesthetic
+// Canvas Rendering Engine for HH Goa 2026 — Goan Portuguese-Heritage & Coastal Line-Art Fusion
 
 export interface RenderOptionsFormatA {
   image?: HTMLImageElement | HTMLCanvasElement;
@@ -67,7 +67,148 @@ function drawImageCoverPanZoom(
   ctx.restore();
 }
 
-// Helper 1: Azulejo Ceramic Tile Corner Rosette Motif (Portuguese Blue & White Tile Art)
+// Helper 1: Fine Line-Art Coconut Palm Tree Canopy (Brand Color Linework)
+function drawLineArtPalmCanopy(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  scale = 1,
+  color = COLOR_INDIGO,
+  flip = false
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  if (flip) ctx.scale(-scale, scale);
+  else ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.5;
+
+  // Trunk
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.quadraticCurveTo(-25, -50, -15, -110);
+  ctx.stroke();
+
+  // Coconuts
+  ctx.fillStyle = COLOR_LATERITE;
+  ctx.beginPath();
+  ctx.arc(-18, -105, 8, 0, Math.PI * 2);
+  ctx.arc(-10, -110, 8.5, 0, Math.PI * 2);
+  ctx.arc(-24, -112, 7.5, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Spreading Fronds
+  ctx.fillStyle = "none";
+  const frondAngles = [-1.8, -1.2, -0.6, 0, 0.6, 1.2];
+  frondAngles.forEach((angle) => {
+    ctx.save();
+    ctx.translate(-15, -110);
+    ctx.rotate(angle);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(45, -25, 80, 20);
+    ctx.stroke();
+
+    // Rib Frond Spines
+    ctx.strokeStyle = COLOR_LATERITE;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(30, -5);
+    ctx.lineTo(35, 3);
+    ctx.moveTo(50, 0);
+    ctx.lineTo(56, 10);
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  ctx.restore();
+}
+
+// Helper 2: Fine Line-Art Beach Umbrella
+function drawLineArtBeachUmbrella(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  scale = 1,
+  color = COLOR_INDIGO
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.2;
+
+  // Pole
+  ctx.beginPath();
+  ctx.moveTo(0, -30);
+  ctx.lineTo(0, 30);
+  ctx.stroke();
+
+  // Canopy Fill & Outline
+  ctx.fillStyle = "#FFFFFF";
+  ctx.beginPath();
+  ctx.moveTo(-35, -30);
+  ctx.quadraticCurveTo(0, -65, 35, -30);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Canopy Ribs
+  ctx.strokeStyle = COLOR_LATERITE;
+  ctx.lineWidth = 1.8;
+  ctx.beginPath();
+  ctx.moveTo(0, -58);
+  ctx.lineTo(0, -30);
+  ctx.moveTo(-18, -48);
+  ctx.quadraticCurveTo(-14, -38, -16, -30);
+  ctx.moveTo(18, -48);
+  ctx.quadraticCurveTo(14, -38, 16, -30);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 3: Fine Line-Art Straw Sun Hat Accent
+function drawLineArtSunHat(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  scale = 1,
+  color = COLOR_LATERITE
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "#FFFFFF";
+
+  // Brim
+  ctx.beginPath();
+  ctx.ellipse(0, 5, 28, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+
+  // Crown
+  ctx.beginPath();
+  ctx.arc(0, 0, 14, Math.PI, 0);
+  ctx.fill();
+  ctx.stroke();
+
+  // Ribbon
+  ctx.strokeStyle = COLOR_INDIGO;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(0, 3, 14, Math.PI * 0.8, Math.PI * 0.2, true);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 4: Azulejo Corner Tile Rosette Motif
 function drawAzulejoCornerRosette(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -80,16 +221,14 @@ function drawAzulejoCornerRosette(
   ctx.translate(x, y);
   if (flipX || flipY) ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
 
-  // Outer Ceramic Tile Base
   ctx.fillStyle = "#FFFFFF";
   ctx.strokeStyle = COLOR_AZULEJO;
-  ctx.lineWidth = 2.5;
+  ctx.lineWidth = 2.2;
   ctx.beginPath();
   ctx.rect(0, 0, size, size);
   ctx.fill();
   ctx.stroke();
 
-  // Inner Tile Grid Lines
   ctx.strokeStyle = "rgba(43, 76, 126, 0.3)";
   ctx.lineWidth = 1.2;
   ctx.beginPath();
@@ -99,14 +238,12 @@ function drawAzulejoCornerRosette(
   ctx.lineTo(0, size);
   ctx.stroke();
 
-  // Central Rosette Circle
   ctx.strokeStyle = COLOR_INDIGO;
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.arc(size / 2, size / 2, size * 0.32, 0, Math.PI * 2);
   ctx.stroke();
 
-  // Laterite Red Accent Petals
   ctx.fillStyle = COLOR_LATERITE;
   ctx.beginPath();
   ctx.arc(size / 2, size / 2 - size * 0.28, 4, 0, Math.PI * 2);
@@ -115,7 +252,6 @@ function drawAzulejoCornerRosette(
   ctx.arc(size / 2 + size * 0.28, size / 2, 4, 0, Math.PI * 2);
   ctx.fill();
 
-  // Center Dot
   ctx.fillStyle = COLOR_INDIGO;
   ctx.beginPath();
   ctx.arc(size / 2, size / 2, 5, 0, Math.PI * 2);
@@ -124,43 +260,28 @@ function drawAzulejoCornerRosette(
   ctx.restore();
 }
 
-// Helper 2: Carved Balcão Wooden Window & Whitewashed Church Arch Linework
-function drawGoanBalcaoArchLinework(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  width: number,
-  height: number
-) {
+// Helper 5: Shoreline Waves Linework at Bottom Edge
+function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, width: number) {
   ctx.save();
-  ctx.translate(x, y);
-
-  // Church Arch Linework
   ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 1.8;
-  ctx.globalAlpha = 0.18;
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
-  ctx.moveTo(0, height);
-  ctx.lineTo(0, height * 0.35);
-  ctx.bezierCurveTo(0, 0, width, 0, width, height * 0.35);
-  ctx.lineTo(width, height);
+  for (let x = 0; x <= width; x += 50) {
+    ctx.quadraticCurveTo(x + 25, y - 10, x + 50, y);
+  }
   ctx.stroke();
 
-  // Inner Arch Parallel Line
   ctx.strokeStyle = COLOR_LATERITE;
-  ctx.lineWidth = 1.5;
-  ctx.globalAlpha = 0.15;
+  ctx.lineWidth = 1.8;
   ctx.beginPath();
-  ctx.moveTo(12, height);
-  ctx.lineTo(12, height * 0.38);
-  ctx.bezierCurveTo(12, 12, width - 12, 12, width - 12, height * 0.38);
-  ctx.lineTo(width - 12, height);
+  for (let x = 0; x <= width; x += 40) {
+    ctx.quadraticCurveTo(x + 20, y + 6, x + 40, y + 14);
+  }
   ctx.stroke();
-
   ctx.restore();
 }
 
-// Helper 3: Official Goan Heritage Stamp Seal
+// Helper 6: Official Goan Heritage Stamp Seal
 function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: number) {
   ctx.save();
   ctx.translate(x, y);
@@ -169,7 +290,6 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.lineWidth = 2.5;
   ctx.globalAlpha = 0.85;
 
-  // Double Ring Seal
   ctx.beginPath();
   ctx.arc(0, 0, 36, 0, Math.PI * 2);
   ctx.stroke();
@@ -179,7 +299,6 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.arc(0, 0, 30, 0, Math.PI * 2);
   ctx.stroke();
 
-  // Seal Text & Center Rosette
   ctx.fillStyle = COLOR_INDIGO;
   ctx.font = "bold 9px JetBrains Mono, monospace";
   ctx.textAlign = "center";
@@ -194,29 +313,6 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.fillStyle = COLOR_AZULEJO;
   ctx.fillText("★ 2026 ★", 0, 18);
 
-  ctx.restore();
-}
-
-// Helper 4: Azulejo Tile Border Line
-function drawAzulejoTileBorderLine(ctx: CanvasRenderingContext2D, width: number, y: number) {
-  ctx.save();
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(0, y);
-  ctx.lineTo(width, y);
-  ctx.stroke();
-
-  // Ceramic Rosette Points across border
-  ctx.fillStyle = COLOR_LATERITE;
-  for (let x = 30; x < width; x += 60) {
-    ctx.beginPath();
-    ctx.arc(x, y, 4, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = COLOR_AZULEJO;
-    ctx.lineWidth = 1;
-    ctx.strokeRect(x - 6, y - 6, 12, 12);
-  }
   ctx.restore();
 }
 
@@ -238,18 +334,19 @@ export function renderFormatA(
   const centerX = size / 2;
   const centerY = size / 2 - 20;
 
-  // Warm Whitewash Background Fill
+  // Background Fill
   ctx.fillStyle = COLOR_WHITEWASH;
   ctx.fillRect(0, 0, size, size);
 
-  // Background Carved Balcão Arch Linework
-  drawGoanBalcaoArchLinework(ctx, 80, 80, 840, 840);
+  // 4-Corner Azulejo Ceramic Rosettes
+  drawAzulejoCornerRosette(ctx, 25, 25, 75, false, false);
+  drawAzulejoCornerRosette(ctx, size - 100, 25, 75, true, false);
+  drawAzulejoCornerRosette(ctx, 25, size - 100, 75, false, true);
+  drawAzulejoCornerRosette(ctx, size - 100, size - 100, 75, true, true);
 
-  // 4-Corner Azulejo Ceramic Rosette Tiles
-  drawAzulejoCornerRosette(ctx, 30, 30, 80, false, false);
-  drawAzulejoCornerRosette(ctx, size - 110, 30, 80, true, false);
-  drawAzulejoCornerRosette(ctx, 30, size - 110, 80, false, true);
-  drawAzulejoCornerRosette(ctx, size - 110, size - 110, 80, true, true);
+  // Line-Art Coconut Palm Trees on Left & Right Corners (Format A Benchmark)
+  drawLineArtPalmCanopy(ctx, 80, size - 40, 1.2, COLOR_INDIGO, false);
+  drawLineArtPalmCanopy(ctx, size - 80, size - 40, 1.2, COLOR_INDIGO, true);
 
   // Photo Circle
   const photoRadius = 340;
@@ -259,7 +356,6 @@ export function renderFormatA(
   ctx.arc(centerX, centerY, photoRadius, 0, Math.PI * 2);
   ctx.clip();
 
-  // User Photo
   if (options.image) {
     drawImageCoverPanZoom(
       ctx,
@@ -282,7 +378,7 @@ export function renderFormatA(
   }
   ctx.restore();
 
-  // Deep Indigo Branded Outer Ring with Azulejo Accent
+  // Deep Indigo Branded Outer Ring
   ctx.save();
   const ringWidth = 24;
   ctx.lineWidth = ringWidth;
@@ -303,6 +399,9 @@ export function renderFormatA(
   ctx.stroke();
   ctx.restore();
 
+  // Shoreline Waves Linework at Bottom Edge
+  drawShorelineWaveLinework(ctx, size - 60, size);
+
   // Top Pill Header: "HackerHouse goa"
   ctx.save();
   const topPillW = 460;
@@ -320,7 +419,6 @@ export function renderFormatA(
   ctx.fill();
   ctx.stroke();
 
-  // Text inside top pill
   ctx.textBaseline = "middle";
   ctx.shadowBlur = 0;
 
@@ -341,7 +439,7 @@ export function renderFormatA(
   ctx.fillText("गोवा", startX + w1, topPillY + topPillH / 2);
   ctx.restore();
 
-  // Bottom Banner Bar: Dates & Location + #FrameInGoa
+  // Bottom Banner Bar
   ctx.save();
   const bottomBarW = 760;
   const bottomBarH = 110;
@@ -358,21 +456,16 @@ export function renderFormatA(
   ctx.fill();
   ctx.stroke();
 
-  // Primary Badge Line
   const userBadge = options.badgeText || "BUILDER • GOA 2026";
   ctx.textAlign = "center";
   ctx.font = "800 32px Playfair Display, serif";
   ctx.fillStyle = COLOR_LATERITE;
   ctx.fillText(userBadge, centerX, bottomBarY + 44);
 
-  // Sub-Text Line
   ctx.font = "700 17px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO;
   ctx.fillText("28–31 OCT 2026 • GOA, INDIA • #FrameInGoa", centerX, bottomBarY + 84);
   ctx.restore();
-
-  // Azulejo Tile Bottom Border Line
-  drawAzulejoTileBorderLine(ctx, size, size - 25);
 }
 
 // ----------------------------------------------------
@@ -391,12 +484,9 @@ export function renderFormatB(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Whitewash Background Fill
+  // Background Fill
   ctx.fillStyle = COLOR_WHITEWASH;
   ctx.fillRect(0, 0, width, height);
-
-  // Background Carved Balcão Arch Contour
-  drawGoanBalcaoArchLinework(ctx, 40, 20, width - 80, height - 40);
 
   // Corner Azulejo Ceramic Tile Accents
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
@@ -404,22 +494,19 @@ export function renderFormatB(
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
 
+  // Fine Line-Art Beach Umbrella Silhouette on Right Side
+  drawLineArtBeachUmbrella(ctx, width - 110, 140, 1.1, COLOR_INDIGO);
+
   // Outer Card Border
   ctx.strokeStyle = COLOR_INDIGO;
   ctx.lineWidth = 3.5;
   ctx.strokeRect(18, 18, width - 36, height - 36);
 
-  // Outer Inner Accent Line
-  ctx.strokeStyle = COLOR_AZULEJO;
-  ctx.lineWidth = 1.2;
-  ctx.strokeRect(26, 26, width - 52, height - 52);
-
-  // Left Photo Column (Square Frame)
+  // Photo Frame Box
   const photoSize = 360;
   const photoX = 65;
   const photoY = (height - photoSize) / 2 + 10;
 
-  // Photo Outer Frame Panel
   ctx.save();
   ctx.fillStyle = "#FFFFFF";
   ctx.strokeStyle = COLOR_INDIGO;
@@ -430,7 +517,7 @@ export function renderFormatB(
   ctx.stroke();
   ctx.restore();
 
-  // Clip & Draw User Photo
+  // User Photo
   ctx.save();
   ctx.beginPath();
   ctx.roundRect(photoX, photoY, photoSize, photoSize, 18);
@@ -458,10 +545,10 @@ export function renderFormatB(
   }
   ctx.restore();
 
-  // Right Side Builder Information Panel
+  // Right Side Builder Info
   const contentX = photoX + photoSize + 55;
 
-  // Header Title: HackerHouse goa
+  // Header Title
   ctx.save();
   ctx.textBaseline = "top";
   ctx.font = "800 32px Playfair Display, serif";
@@ -478,13 +565,12 @@ export function renderFormatB(
   ctx.fillStyle = COLOR_LATERITE;
   ctx.fillText("गोवा", contentX + w1, 56);
 
-  // Subheader Tagline
   ctx.font = "700 13px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO;
   ctx.fillText("28–31 OCT 2026 • GOA, INDIA", contentX + w1 + w2 + 20, 68);
   ctx.restore();
 
-  // Header Separator Line
+  // Separator Line
   ctx.strokeStyle = "rgba(27, 42, 74, 0.2)";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
@@ -504,7 +590,7 @@ export function renderFormatB(
   ctx.fillText(displayName.toUpperCase(), contentX, 196);
   ctx.restore();
 
-  // Stack Role Pill
+  // Role Pill
   ctx.save();
   const roleText = (options.role || "FULL-STACK ENGINEER").toUpperCase();
   ctx.font = "bold 13px JetBrains Mono, monospace";
@@ -522,7 +608,7 @@ export function renderFormatB(
   ctx.fillText(roleText, contentX + 16, 246);
   ctx.restore();
 
-  // Designation / Fun Title
+  // Title
   ctx.save();
   ctx.font = "700 13px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO;
@@ -533,7 +619,7 @@ export function renderFormatB(
   ctx.fillText(options.title || "BUILDER TITLE", contentX, 324);
   ctx.restore();
 
-  // QR Code & Goan Heritage Stamp Seal
+  // QR Code
   if (options.qrCanvas) {
     const qrSize = 110;
     const qrX = contentX;
@@ -557,19 +643,19 @@ export function renderFormatB(
     ctx.restore();
   }
 
-  // Draw Official Goan Heritage Stamp Seal on Right Corner
+  // Official Seal
   drawGoanHeritageStampSeal(ctx, width - 130, 420);
 
-  // Footer Credit Line
+  // Shoreline Waves Linework at Bottom Edge
+  drawShorelineWaveLinework(ctx, height - 28, width);
+
+  // Footer Credit
   ctx.save();
   ctx.font = "700 14px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO;
   ctx.textAlign = "center";
-  ctx.fillText("2:47 PM Studio • OFFICIAL EVENT BADGE • #FrameInGoa", width / 2, height - 38);
+  ctx.fillText("2:47 PM Studio • OFFICIAL EVENT BADGE • #FrameInGoa", width / 2, height - 42);
   ctx.restore();
-
-  // Bottom Azulejo Tile Line
-  drawAzulejoTileBorderLine(ctx, width, height - 16);
 }
 
 // ----------------------------------------------------
@@ -588,25 +674,25 @@ export function renderFormatC(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Whitewash Background Fill
+  // Background Fill
   ctx.fillStyle = COLOR_WHITEWASH;
   ctx.fillRect(0, 0, width, height);
 
-  // Background Carved Balcão Arch Linework
-  drawGoanBalcaoArchLinework(ctx, 40, 20, width - 80, height - 40);
-
-  // Corner Azulejo Ceramic Rosettes
+  // Corner Azulejo Rosettes
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
   drawAzulejoCornerRosette(ctx, width - 70, 20, 50, true, false);
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
+
+  // Straw Sun Hat Line-Art Accent Icon Top Right
+  drawLineArtSunHat(ctx, width - 130, 80, 0.9, COLOR_LATERITE);
 
   // Outer Card Border
   ctx.strokeStyle = COLOR_INDIGO;
   ctx.lineWidth = 3.5;
   ctx.strokeRect(18, 18, width - 36, height - 36);
 
-  // Top Header Banner
+  // Top Header
   ctx.save();
   ctx.textAlign = "center";
   ctx.font = "900 36px Playfair Display, serif";
@@ -626,7 +712,7 @@ export function renderFormatC(
   ctx.lineTo(width - 80, 130);
   ctx.stroke();
 
-  // Render Team Members (2 or 3 Members)
+  // Render Team Members
   const memberCount = Math.min(Math.max(options.members.length, 2), 3);
   const cardWidth = memberCount === 2 ? 360 : 310;
   const cardHeight = 360;
@@ -636,7 +722,6 @@ export function renderFormatC(
   options.members.slice(0, memberCount).forEach((m, idx) => {
     const cardX = startX + idx * (cardWidth + 35);
 
-    // Member Frame Box
     ctx.save();
     ctx.fillStyle = "#FFFFFF";
     ctx.strokeStyle = COLOR_INDIGO;
@@ -647,7 +732,6 @@ export function renderFormatC(
     ctx.stroke();
     ctx.restore();
 
-    // Member Photo Box
     const pSize = memberCount === 2 ? 220 : 190;
     const px = cardX + (cardWidth - pSize) / 2;
     const py = cardY + 20;
@@ -669,7 +753,6 @@ export function renderFormatC(
     }
     ctx.restore();
 
-    // Member Name & Role
     ctx.save();
     ctx.textAlign = "center";
     ctx.font = "800 20px Playfair Display, serif";
@@ -682,14 +765,14 @@ export function renderFormatC(
     ctx.restore();
   });
 
-  // Footer Credit Line
+  // Shoreline Waves Linework at Bottom Edge
+  drawShorelineWaveLinework(ctx, height - 28, width);
+
+  // Footer Credit
   ctx.save();
   ctx.font = "700 14px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO;
   ctx.textAlign = "center";
-  ctx.fillText("#FrameInGoa • 2:47 PM Studio • LESS NOISE. MORE SIGNAL.", width / 2, height - 38);
+  ctx.fillText("#FrameInGoa • 2:47 PM Studio • LESS NOISE. MORE SIGNAL.", width / 2, height - 42);
   ctx.restore();
-
-  // Bottom Azulejo Border Line
-  drawAzulejoTileBorderLine(ctx, width, height - 16);
 }

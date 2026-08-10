@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IdCard, Frame, Users, ArrowRight, Share2, Sparkles, ShieldCheck, Download, Award } from "lucide-react";
-import { GoaBeachStamp, AzulejoTilePattern, GoanWindowBalcao } from "@/components/GoaMotifs";
+import { IdCard, Frame, Users, ArrowRight, Sparkles, ShieldCheck, Share2, Award } from "lucide-react";
+import { GoaBeachStamp, AzulejoTilePattern, GoanWindowBalcao, GoanHeritagePalm, GoanSunHat, GoanBeachUmbrella, GoanShorelineWaves } from "@/components/GoaMotifs";
 
 export default function Home() {
   return (
@@ -13,8 +13,16 @@ export default function Home() {
       <section className="relative px-4 pt-10 pb-20 sm:px-6 sm:pt-16 sm:pb-24 lg:px-8">
         
         {/* Background Balcão Arch Linework */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-25">
           <GoanWindowBalcao className="w-full max-w-4xl h-auto text-[#1B2A4A]" />
+        </div>
+
+        {/* Floating Line-Art Coastal Motifs (Left Palm & Right Umbrella) */}
+        <div className="pointer-events-none absolute left-6 top-16 hidden lg:block opacity-60">
+          <GoanHeritagePalm className="h-28 w-28 text-[#1B2A4A]" />
+        </div>
+        <div className="pointer-events-none absolute right-8 top-20 hidden lg:block opacity-60">
+          <GoanBeachUmbrella className="h-24 w-24 text-[#A63A2B]" />
         </div>
 
         {/* Goa Heritage Event Badge */}
@@ -31,9 +39,13 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl font-mono-code text-[#2B4C7E] font-bold">
-            "Less Noise. More Signal."
-          </p>
+          <div className="flex items-center justify-center gap-3">
+            <GoanSunHat className="h-6 w-6 text-[#A63A2B]" />
+            <p className="text-xl sm:text-2xl font-mono-code text-[#2B4C7E] font-bold">
+              "Less Noise. More Signal."
+            </p>
+            <GoanBeachUmbrella className="h-6 w-6 text-[#1B2A4A]" />
+          </div>
 
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#121B2D] leading-relaxed font-semibold">
             Drop a photo. Generate your official event profile overlay, high-res builder ID pass, or team delegation graphic in seconds. Instant client-side render with dynamic shareable profile URLs.
@@ -65,12 +77,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Shoreline Waves Divider */}
+      <GoanShorelineWaves className="w-full" />
+
       {/* Format Showcase Section */}
       <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center space-y-3 mb-12">
-          <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A63A2B]">
-            // THREE DISTINCT BADGE FORMATS
-          </span>
+          <div className="flex items-center justify-center gap-2">
+            <GoanHeritagePalm className="h-5 w-5 text-[#A63A2B]" />
+            <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A63A2B]">
+              // THREE DISTINCT BADGE FORMATS
+            </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#121B2D]">
             Craft Your Hacker House Credential
           </h2>
@@ -82,17 +100,17 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Format A Card */}
-          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all">
+          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all relative">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="rounded-lg bg-[#A63A2B]/10 border border-[#A63A2B]/20 px-3 py-1 text-xs font-mono-code font-bold text-[#A63A2B]">
                   FORMAT A
                 </span>
-                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1000 × 1000 px</span>
+                <GoanHeritagePalm className="h-5 w-5 text-[#1B2A4A]" />
               </div>
               <h3 className="font-display text-xl font-bold text-[#121B2D]">PFP Profile Overlay</h3>
               <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
-                Square profile picture frame featuring Azulejo ceramic tile rosettes, carved balcão arch linework, and custom badge overlay text.
+                Square profile picture frame featuring fine line-art palm tree canopies, coconut clusters, Azulejo rosettes, and custom badge overlay text.
               </p>
             </div>
             <div className="pt-6">
@@ -110,11 +128,11 @@ export default function Home() {
                 <span className="rounded-lg bg-[#1B2A4A] text-white px-3 py-1 text-xs font-mono-code font-bold">
                   FORMAT B • MOST POPULAR
                 </span>
-                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1200 × 630 px</span>
+                <GoanBeachUmbrella className="h-5 w-5 text-[#A63A2B]" />
               </div>
               <h3 className="font-display text-xl font-bold text-[#121B2D]">Builder ID Event Badge</h3>
               <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
-                Official horizontal event credential pass with photo upload, tech stack role selector, fun title generator, and dynamic QR code verification.
+                Official horizontal event credential pass featuring beach umbrella line-art, shoreline wave contours, stack role selector, and QR code verification.
               </p>
             </div>
             <div className="pt-6">
@@ -126,17 +144,17 @@ export default function Home() {
           </div>
 
           {/* Format C Card */}
-          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all">
+          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all relative">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="rounded-lg bg-[#A63A2B]/10 border border-[#A63A2B]/20 px-3 py-1 text-xs font-mono-code font-bold text-[#A63A2B]">
                   FORMAT C
                 </span>
-                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1200 × 630 px</span>
+                <GoanSunHat className="h-5 w-5 text-[#1B2A4A]" />
               </div>
               <h3 className="font-display text-xl font-bold text-[#121B2D]">Team / Group Pass</h3>
               <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
-                Combined delegation graphic for 2 or 3 teammates with Azulejo rosette corner points, team name, and individual stack roles.
+                Combined delegation graphic for 2 or 3 teammates with straw sun hat line-art accent, Azulejo rosettes, and individual roles.
               </p>
             </div>
             <div className="pt-6">
