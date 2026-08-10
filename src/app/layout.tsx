@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Space_Grotesk, JetBrains_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import { Playfair_Display, Space_Grotesk, JetBrains_Mono, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const syne = Syne({
-  variable: "--font-syne",
+const playfair = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["600", "700", "800", "900"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   title: "Frame in Goa | HH Goa 2026",
   description:
     "Official PFP frame & Builder ID Pass generator for Hacker House Goa 2026 (28–31 Oct 2026, Goa, India). Drop a photo, craft your credential, and share #FrameInGoa.",
-  keywords: ["Hacker House Goa", "HH Goa 2026", "Frame in Goa", "PFP Frame Generator", "Builder Pass", "2:47 PM Studio"],
+  keywords: ["Hacker House Goa", "HH Goa 2026", "Frame in Goa", "Azulejo", "PFP Frame Generator", "Builder Pass", "2:47 PM Studio"],
   authors: [{ name: "2:47 PM Studio" }],
   openGraph: {
     title: "Frame in Goa — Hacker House Goa 2026",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF4E8",
+  themeColor: "#FDFBF7",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -62,9 +62,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${devanagari.variable} h-full antialiased`}
+      className={`${playfair.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${devanagari.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FAF4E8] text-[#1F2421] selection:bg-[#D9532F] selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#FDFBF7] text-[#121B2D] selection:bg-[#A63A2B] selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

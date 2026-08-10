@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { decodePayload } from "@/lib/share-utils";
 
-
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -30,12 +29,12 @@ export async function GET(request: Request) {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundColor: "#faf4e8",
+            backgroundColor: "#FDFBF7",
             padding: "40px",
-            border: "4px solid #e66c37",
+            border: "4px solid #1B2A4A",
             borderRadius: "24px",
-            color: "#1c1917",
-            fontFamily: "sans-serif",
+            color: "#121B2D",
+            fontFamily: "serif",
           }}
         >
           {/* Header */}
@@ -52,18 +51,19 @@ export async function GET(request: Request) {
                 style={{
                   fontSize: "36px",
                   fontWeight: "bold",
-                  color: "#1c1917",
+                  color: "#121B2D",
                 }}
               >
-                HackerHouse <span style={{ color: "#e66c37" }}>GOA</span>
+                HackerHouse <span style={{ color: "#A63A2B" }}>GOA</span>
               </div>
             </div>
             <div
               style={{
                 fontSize: "18px",
                 fontWeight: "bold",
-                color: "#0d4a3a",
+                color: "#2B4C7E",
                 letterSpacing: "1px",
+                fontFamily: "monospace",
               }}
             >
               28–31 OCT 2026 • GOA, INDIA
@@ -83,9 +83,10 @@ export async function GET(request: Request) {
             <div
               style={{
                 fontSize: "16px",
-                color: "#0d4a3a",
+                color: "#2B4C7E",
                 letterSpacing: "2px",
                 fontWeight: "bold",
+                fontFamily: "monospace",
               }}
             >
               VERIFIED EVENT CREDENTIAL
@@ -94,7 +95,7 @@ export async function GET(request: Request) {
               style={{
                 fontSize: "56px",
                 fontWeight: "900",
-                color: "#1c1917",
+                color: "#121B2D",
                 textTransform: "uppercase",
               }}
             >
@@ -104,16 +105,16 @@ export async function GET(request: Request) {
               style={{
                 fontSize: "24px",
                 fontWeight: "bold",
-                color: "#e66c37",
-                backgroundColor: "rgba(230, 108, 55, 0.12)",
+                color: "#A63A2B",
+                backgroundColor: "rgba(166, 58, 43, 0.12)",
                 padding: "8px 24px",
                 borderRadius: "20px",
-                border: "1px solid #e66c37",
+                border: "1px solid #A63A2B",
               }}
             >
               {title}
             </div>
-            <div style={{ fontSize: "18px", color: "#0d4a3a", fontWeight: "bold" }}>{role}</div>
+            <div style={{ fontSize: "18px", color: "#2B4C7E", fontWeight: "bold", fontFamily: "monospace" }}>{role}</div>
           </div>
 
           {/* Footer */}
@@ -124,12 +125,13 @@ export async function GET(request: Request) {
               justifyContent: "space-between",
               alignItems: "center",
               fontSize: "16px",
-              color: "#0d4a3a",
+              color: "#2B4C7E",
               fontWeight: "bold",
+              fontFamily: "monospace",
             }}
           >
             <div>Less Noise. More Signal.</div>
-            <div style={{ color: "#e66c37", fontWeight: "bold" }}>#FrameInGoa</div>
+            <div style={{ color: "#A63A2B", fontWeight: "bold" }}>#FrameInGoa</div>
             <div>2:47 PM Studio</div>
           </div>
         </div>

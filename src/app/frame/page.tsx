@@ -204,31 +204,31 @@ export default function FramePage() {
                       step="0.05"
                       value={zoom}
                       onChange={(e) => setZoom(parseFloat(e.target.value))}
-                      className="w-full accent-[#D9532F]"
+                      className="w-full accent-[#A63A2B]"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[#0F4C5C] block mb-1">Horizontal Pan ({panX}%)</label>
+                    <label className="text-[#2B4C7E] block mb-1">Horizontal Pan ({panX}%)</label>
                     <input
                       type="range"
                       min="-50"
                       max="50"
                       value={panX}
                       onChange={(e) => setPanX(parseInt(e.target.value))}
-                      className="w-full accent-[#D9532F]"
+                      className="w-full accent-[#A63A2B]"
                     />
                   </div>
 
                   <div className="col-span-2">
-                    <label className="text-[#0F4C5C] block mb-1">Vertical Pan ({panY}%)</label>
+                    <label className="text-[#2B4C7E] block mb-1">Vertical Pan ({panY}%)</label>
                     <input
                       type="range"
                       min="-50"
                       max="50"
                       value={panY}
                       onChange={(e) => setPanY(parseInt(e.target.value))}
-                      className="w-full accent-[#D9532F]"
+                      className="w-full accent-[#A63A2B]"
                     />
                   </div>
                 </div>
@@ -241,15 +241,15 @@ export default function FramePage() {
             
             {/* 1. Upload Button */}
             <div className="space-y-2">
-              <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F]">
+              <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B]">
                 Step 1: Upload Photo
               </label>
 
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="w-full flex items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-[#D9532F]/40 bg-white p-5 text-sm font-mono-code font-bold text-[#1F2421] transition-all hover:bg-[#FAF4E8] hover:border-[#D9532F] shadow-xs"
+                className="w-full flex items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-[#A63A2B]/40 bg-white p-5 text-sm font-mono-code font-bold text-[#1F2421] transition-all hover:bg-[#FAF4E8] hover:border-[#A63A2B] shadow-xs"
               >
-                <Upload className="h-5 w-5 text-[#D9532F]" />
+                <Upload className="h-5 w-5 text-[#A63A2B]" />
                 <span>{imageObj ? "Change Uploaded Photo" : "Upload Photo (JPG, PNG, HEIC)"}</span>
               </button>
 
@@ -260,14 +260,14 @@ export default function FramePage() {
                 accept="image/*,.heic,.heif"
                 className="hidden"
               />
-              <p className="text-[11px] font-mono-code text-[#0F4C5C] text-center font-semibold">
+              <p className="text-[11px] font-mono-code text-[#2B4C7E] text-center font-semibold">
                 Supports Photo Library, camera capture & automatic HEIC conversion.
               </p>
             </div>
 
             {/* 2. Badge Selector */}
             <div className="space-y-2">
-              <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F]">
+              <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B]">
                 Step 2: Badge Overlay Text
               </label>
 
@@ -278,8 +278,8 @@ export default function FramePage() {
                     onClick={() => setBadgeText(b)}
                     className={`rounded-lg px-3 py-1.5 border transition-all ${
                       badgeText === b
-                        ? "bg-[#D9532F] text-white border-[#D9532F] shadow-xs"
-                        : "bg-white text-[#1F2421] border-[#D9532F]/20 hover:border-[#D9532F]"
+                        ? "bg-[#A63A2B] text-white border-[#A63A2B] shadow-xs"
+                        : "bg-white text-[#1F2421] border-[#A63A2B]/20 hover:border-[#A63A2B]"
                     }`}
                   >
                     {b ? b : "No Badge"}
@@ -289,7 +289,7 @@ export default function FramePage() {
             </div>
 
             {/* 3. Action Buttons */}
-            <div className="pt-4 border-t border-[#D9532F]/20 space-y-3">
+            <div className="pt-4 border-t border-[#A63A2B]/20 space-y-3">
               <button
                 onClick={handleDownload}
                 className="goa-btn-primary w-full text-sm py-3.5"

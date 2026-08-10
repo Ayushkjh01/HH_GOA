@@ -310,15 +310,15 @@ export default function PassPage() {
             
             {/* 1. Upload Button */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F]">
+              <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B]">
                 Step 1: Badge Photo
               </label>
 
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[#D9532F]/40 bg-white p-3.5 text-xs font-mono-code font-bold text-[#1F2421] transition-all hover:bg-[#FAF4E8] shadow-xs"
+                className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[#A63A2B]/40 bg-white p-3.5 text-xs font-mono-code font-bold text-[#121B2D] transition-all hover:bg-[#FDFBF7] shadow-xs"
               >
-                <Upload className="h-4 w-4 text-[#D9532F]" />
+                <Upload className="h-4 w-4 text-[#A63A2B]" />
                 <span>{imageObj ? "Change Photo" : "Upload Badge Photo"}</span>
               </button>
 
@@ -334,7 +334,7 @@ export default function PassPage() {
             {/* 2. Name & Role */}
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F] mb-1">
+                <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B] mb-1">
                   Step 2: Builder Name
                 </label>
                 <input
@@ -343,18 +343,18 @@ export default function PassPage() {
                   onChange={(e) => setName(e.target.value.toUpperCase())}
                   placeholder="Enter your name"
                   maxLength={24}
-                  className="w-full rounded-xl border border-[#D9532F]/30 bg-white px-3.5 py-2.5 text-sm font-bold text-[#1F2421] focus:border-[#D9532F] focus:outline-none shadow-xs"
+                  className="w-full rounded-xl border border-[#A63A2B]/30 bg-white px-3.5 py-2.5 text-sm font-bold text-[#121B2D] focus:border-[#A63A2B] focus:outline-none shadow-xs"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F] mb-1">
+                <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B] mb-1">
                   Stack / Primary Role
                 </label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="w-full rounded-xl border border-[#D9532F]/30 bg-white px-3.5 py-2.5 text-xs font-mono-code font-bold text-[#1F2421] focus:border-[#D9532F] focus:outline-none shadow-xs"
+                  className="w-full rounded-xl border border-[#A63A2B]/30 bg-white px-3.5 py-2.5 text-xs font-mono-code font-bold text-[#121B2D] focus:border-[#A63A2B] focus:outline-none shadow-xs"
                 >
                   {getDefaultRoles().map((r) => (
                     <option key={r} value={r.toUpperCase()}>
@@ -368,14 +368,14 @@ export default function PassPage() {
             {/* 3. Fun Title Generator */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="block text-xs font-mono-code font-bold uppercase text-[#D9532F]">
+                <label className="block text-xs font-mono-code font-bold uppercase text-[#A63A2B]">
                   Step 3: Fun Builder Title
                 </label>
 
                 <button
                   type="button"
                   onClick={handleShuffleTitle}
-                  className="flex items-center gap-1 text-[11px] font-mono-code text-[#D9532F] hover:underline font-bold"
+                  className="flex items-center gap-1 text-[11px] font-mono-code text-[#A63A2B] hover:underline font-bold"
                 >
                   <Shuffle className="h-3 w-3" />
                   <span>SHUFFLE TITLE</span>

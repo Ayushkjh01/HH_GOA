@@ -1,157 +1,131 @@
 import React from "react";
 
-// Custom Goa Illustrated SVG Motifs & Wave Dividers
+// Goan Portuguese-Heritage Illustrated SVG Motifs & Azulejo Ceramic Tile Artworks
 
-// 1. Custom Minimal Sun-Setting-Over-Wave Brand Logomark
+// 1. Azulejo Ceramic Tile Brand Logomark
 export function HHGoaLogomark({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 36 36"
+      viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Setting Sun Half-Circle */}
+      {/* Outer Azulejo Square Frame */}
+      <rect width="40" height="40" rx="8" fill="#1B2A4A" />
+      <rect x="3" y="3" width="34" height="34" rx="5" stroke="#2B4C7E" strokeWidth="1.5" />
+      <rect x="6" y="6" width="28" height="28" rx="3" stroke="#FDFBF7" strokeOpacity="0.4" strokeWidth="1" />
+      
+      {/* Central Portuguese Rosette Star */}
       <path
-        d="M8 20C8 13.3726 13.3726 8 20 8C26.6274 8 32 13.3726 32 20H8Z"
-        fill="currentColor"
+        d="M20 8L22.5 16H29.5L24 20.5L26 28.5L20 23.5L14 28.5L16 20.5L10.5 16H17.5L20 8Z"
+        fill="#A63A2B"
       />
-      {/* Inner Sun Beam Accent */}
-      <path
-        d="M20 12V14M14.34 14.34L15.76 15.76M25.66 14.34L24.24 15.76"
-        stroke="#FAF4E8"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-      {/* Primary Ocean Wave Curve */}
-      <path
-        d="M4 22C10 26 16 18 22 22C28 26 32 20 36 22"
-        stroke="#0F4C5C"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-      {/* Secondary Wave Ripple Base */}
-      <path
-        d="M4 27C11 31 17 23 23 27C29 31 32 26 36 27"
-        stroke="currentColor"
-        strokeOpacity="0.4"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
+      {/* Inner Petals */}
+      <circle cx="20" cy="20" r="4" fill="#FDFBF7" />
+      <circle cx="20" cy="20" r="2" fill="#1B2A4A" />
     </svg>
   );
 }
 
-// 2. Organic Multi-Layered Ocean Wave SVG Divider
-export function GoaWaveRipples({ className = "" }: { className?: string }) {
+// 2. Azulejo Ceramic Tile Border Pattern (Portuguese Blue Ceramic Motif)
+export function AzulejoTilePattern({ className = "" }: { className?: string }) {
   return (
     <div className={`w-full overflow-hidden leading-none ${className}`}>
       <svg
-        viewBox="0 0 1200 120"
+        viewBox="0 0 1200 60"
         preserveAspectRatio="none"
-        className="relative block w-full h-12 text-[#D9532F]/15"
+        className="relative block w-full h-8 text-[#1B2A4A]"
       >
-        <path
-          d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,40 L1200,120 L0,120 Z"
-          fill="currentColor"
-        />
-        <path
-          d="M0,20 C200,80 450,-10 700,50 C950,110 1100,30 1200,60 L1200,120 L0,120 Z"
-          fill="#0F4C5C"
-          fillOpacity="0.08"
-        />
+        <pattern id="azulejoTile" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <rect width="60" height="60" fill="#1B2A4A" fillOpacity="0.04" />
+          <path d="M0 0 L60 60 M60 0 L0 60" stroke="#2B4C7E" strokeOpacity="0.25" strokeWidth="1.2" />
+          <circle cx="30" cy="30" r="16" stroke="#1B2A4A" strokeOpacity="0.3" strokeWidth="1.5" fill="none" />
+          <path d="M30 10 L30 50 M10 30 L50 30" stroke="#A63A2B" strokeOpacity="0.35" strokeWidth="1.5" />
+          <rect x="25" y="25" width="10" height="10" fill="#1B2A4A" fillOpacity="0.2" transform="rotate(45 30 30)" />
+        </pattern>
+        <rect width="1200" height="60" fill="url(#azulejoTile)" />
       </svg>
     </div>
   );
 }
 
-// 3. Custom Illustrated Palm Leaf Frond Vector Motif
-export function GoaPalmFrond({ className = "", color = "#0F4C5C" }: { className?: string; color?: string }) {
+// 3. Goan Carved Balcão Wooden Window & Church Arch Silhouette Vector
+export function GoanWindowBalcao({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 120 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M20 110C35 85 45 60 50 30"
-        stroke={color}
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <path
-        d="M50 30C35 15 15 12 5 20C20 30 35 32 50 30Z"
-        fill={color}
-        fillOpacity="0.8"
-      />
-      <path
-        d="M50 30C65 12 85 10 95 18C80 28 65 30 50 30Z"
-        fill={color}
-        fillOpacity="0.8"
-      />
-      <path
-        d="M50 30C30 35 12 45 8 60C22 55 38 48 50 30Z"
-        fill={color}
-        fillOpacity="0.85"
-      />
-      <path
-        d="M50 30C70 38 88 48 92 62C78 55 62 46 50 30Z"
-        fill={color}
-        fillOpacity="0.85"
-      />
-      <path
-        d="M50 30C45 50 40 70 38 88C48 72 50 52 50 30Z"
-        fill={color}
-        fillOpacity="0.9"
-      />
-      <circle cx="44" cy="34" r="5" fill="#D9532F" />
-      <circle cx="54" cy="36" r="4.5" fill="#D9532F" />
-    </svg>
-  );
-}
-
-// 4. Custom Refined Goa Coastal Landscape Vector Graphic
-export function GoaCoastalLandscape({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 1200 400"
+      viewBox="0 0 400 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
       <defs>
-        <linearGradient id="skyShoreGrad" x1="0" y1="0" x2="0" y2="400">
-          <stop offset="0%" stopColor="#FAF4E8" stopOpacity="0.8" />
-          <stop offset="50%" stopColor="#E6F4F1" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#FAF4E8" stopOpacity="0" />
+        <linearGradient id="balcaoGrad" x1="0" y1="0" x2="0" y2="300">
+          <stop offset="0%" stopColor="#1B2A4A" stopOpacity="0.12" />
+          <stop offset="60%" stopColor="#2B4C7E" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#FDFBF7" stopOpacity="0" />
         </linearGradient>
       </defs>
-      
-      <rect width="1200" height="400" fill="url(#skyShoreGrad)" />
 
-      <g stroke="#0F4C5C" strokeOpacity="0.12" strokeWidth="1.5" fill="none">
-        <path d="M-100 120 C 200 180, 500 80, 800 150 C 1000 200, 1200 140, 1300 160" />
-        <path d="M-100 160 C 250 220, 550 120, 850 190 C 1050 240, 1200 180, 1300 200" />
-        <path d="M-100 200 C 300 260, 600 160, 900 230 C 1100 280, 1200 220, 1300 240" stroke="#D9532F" strokeOpacity="0.1" />
-      </g>
+      <rect width="400" height="300" fill="url(#balcaoGrad)" />
 
+      {/* Whitewashed Church Arch Outline */}
       <path
-        d="M0 350 C 400 320, 800 380, 1200 340 L 1200 400 L 0 400 Z"
-        fill="#D9532F"
-        fillOpacity="0.04"
+        d="M50 300 V120 C50 60, 120 20, 200 20 C280 20, 350 60, 350 120 V300"
+        stroke="#1B2A4A"
+        strokeWidth="2"
+        strokeOpacity="0.15"
+        fill="none"
       />
+      <path
+        d="M70 300 V130 C70 80, 130 40, 200 40 C270 40, 330 80, 330 130 V300"
+        stroke="#A63A2B"
+        strokeWidth="1.5"
+        strokeOpacity="0.12"
+        fill="none"
+      />
+
+      {/* Balcão Carved Wooden Railings */}
+      <g stroke="#1B2A4A" strokeWidth="1.5" strokeOpacity="0.18">
+        <line x1="80" y1="240" x2="320" y2="240" />
+        <line x1="80" y1="280" x2="320" y2="280" />
+        <line x1="110" y1="240" x2="110" y2="280" />
+        <line x1="140" y1="240" x2="140" y2="280" />
+        <line x1="170" y1="240" x2="170" y2="280" />
+        <line x1="200" y1="240" x2="200" y2="280" />
+        <line x1="230" y1="240" x2="230" y2="280" />
+        <line x1="260" y1="240" x2="260" y2="280" />
+        <line x1="290" y1="240" x2="290" y2="280" />
+      </g>
     </svg>
   );
 }
 
-// 5. Custom Goa Event Seal Stamp
+// 4. Azulejo Ceramic Corner Rosette Accent
+export function AzulejoCornerAccent({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect width="80" height="80" fill="#1B2A4A" fillOpacity="0.05" />
+      <path d="M0 0 L80 80 M80 0 L0 80" stroke="#2B4C7E" strokeOpacity="0.3" strokeWidth="1.5" />
+      <circle cx="40" cy="40" r="24" stroke="#1B2A4A" strokeWidth="2" strokeOpacity="0.4" fill="none" />
+      <path d="M40 10 L40 70 M10 40 L70 40" stroke="#A63A2B" strokeWidth="2" strokeOpacity="0.5" />
+      <circle cx="40" cy="40" r="6" fill="#1B2A4A" />
+    </svg>
+  );
+}
+
+// 5. Official Goan Portuguese-Heritage Event Seal Stamp
 export function GoaBeachStamp({ className = "" }: { className?: string }) {
   return (
-    <div className={`inline-flex items-center gap-2 rounded-full border border-[#D9532F]/30 bg-white/90 px-3.5 py-1.5 shadow-xs ${className}`}>
-      <span className="flex h-2 w-2 rounded-full bg-[#D9532F] animate-pulse" />
-      <span className="font-mono-code text-[11px] font-bold text-[#0F4C5C] tracking-wide uppercase">
-        HackerHouse <span className="font-devanagari text-[#D9532F]">गोवा</span> 2026
+    <div className={`inline-flex items-center gap-2.5 rounded-full border border-[#1B2A4A]/25 bg-[#FDFBF7] px-4 py-1.5 shadow-xs ${className}`}>
+      <span className="flex h-2.5 w-2.5 rounded-full bg-[#A63A2B] animate-pulse" />
+      <span className="font-mono-code text-[11px] font-bold text-[#1B2A4A] tracking-wider uppercase">
+        HackerHouse <span className="font-devanagari text-[#A63A2B]">गोवा</span> 2026
       </span>
     </div>
   );

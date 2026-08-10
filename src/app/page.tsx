@@ -1,50 +1,41 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
-import { Frame, IdCard, Users, ArrowRight, Download, Zap, Share2, Copy, Check, Sun } from "lucide-react";
-import { XIcon } from "@/components/XIcon";
-import { GoaCoastalLandscape, GoaPalmFrond, GoaWaveRipples, GoaBeachStamp } from "@/components/GoaMotifs";
+import { IdCard, Frame, Users, ArrowRight, Share2, Sparkles, ShieldCheck, Download, Award } from "lucide-react";
+import { GoaBeachStamp, AzulejoTilePattern, GoanWindowBalcao } from "@/components/GoaMotifs";
 
-export default function LandingPage() {
-  const [copiedHashtag, setCopiedHashtag] = useState(false);
-
-  const copyHashtagText = () => {
-    navigator.clipboard.writeText("Building at Hacker House Goa 2026! 🌴 Check out my builder pass: #FrameInGoa @HackerHouseGoa");
-    setCopiedHashtag(true);
-    setTimeout(() => setCopiedHashtag(false), 2500);
-  };
-
+export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#FAF4E8] bg-mesh-goa bg-grain overflow-hidden text-[#1F2421]">
+    <div className="relative overflow-hidden bg-[#FDFBF7] text-[#121B2D]">
       
-      {/* Background Illustrated Motifs */}
-      <GoaCoastalLandscape className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-auto pointer-events-none" />
-      <GoaPalmFrond className="absolute top-12 left-4 w-32 h-32 opacity-15 pointer-events-none hidden lg:block" />
-      <GoaPalmFrond className="absolute top-12 right-4 w-32 h-32 opacity-15 pointer-events-none hidden lg:block -scale-x-100" />
+      {/* Top Azulejo Decorative Tile Border */}
+      <AzulejoTilePattern className="w-full" />
 
-      {/* HERO SECTION */}
-      <section className="relative mx-auto max-w-7xl px-4 pt-14 pb-20 sm:px-6 lg:px-8 lg:pt-20 lg:pb-28">
+      {/* Hero Section */}
+      <section className="relative px-4 pt-10 pb-20 sm:px-6 sm:pt-16 sm:pb-24 lg:px-8">
         
-        {/* Event Seal Badge */}
+        {/* Background Balcão Arch Linework */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30">
+          <GoanWindowBalcao className="w-full max-w-4xl h-auto text-[#1B2A4A]" />
+        </div>
+
+        {/* Goa Heritage Event Badge */}
         <div className="flex justify-center">
           <GoaBeachStamp />
         </div>
 
         {/* Hero Title & Taglines */}
-        <div className="mt-8 text-center space-y-6 max-w-4xl mx-auto px-2">
-          <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#1F2421] leading-[1.15] text-center w-full max-w-full overflow-hidden">
-            <span className="block text-[#1F2421]">Frame in Goa</span>
-            <span className="block mt-1.5 sm:mt-2 text-[#D9532F] break-words">
-              HackerHouse <span className="font-devanagari text-[#D9532F] inline-block">गोवा</span>
+        <div className="mt-8 text-center space-y-6 max-w-4xl mx-auto px-2 relative z-10">
+          <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#121B2D] leading-[1.15] text-center w-full max-w-full overflow-hidden">
+            <span className="block text-[#121B2D]">Frame in Goa</span>
+            <span className="block mt-1.5 sm:mt-2 text-[#A63A2B] break-words">
+              HackerHouse <span className="font-devanagari text-[#A63A2B] inline-block">गोवा</span>
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl font-mono-code text-[#0F4C5C] font-bold">
+          <p className="text-xl sm:text-2xl font-mono-code text-[#2B4C7E] font-bold">
             "Less Noise. More Signal."
           </p>
 
-          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#1F2421] leading-relaxed font-semibold">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#121B2D] leading-relaxed font-semibold">
             Drop a photo. Generate your official event profile overlay, high-res builder ID pass, or team delegation graphic in seconds. Instant client-side render with dynamic shareable profile URLs.
           </p>
 
@@ -57,181 +48,130 @@ export default function LandingPage() {
             </Link>
 
             <Link href="/frame" className="goa-btn-secondary w-full sm:w-auto text-base py-3.5 px-7">
-              <Frame className="h-5 w-5 text-[#D9532F]" />
+              <Frame className="h-5 w-5 text-[#A63A2B]" />
               <span>PFP Overlay (Format A)</span>
             </Link>
 
             <Link href="/team" className="goa-btn-secondary w-full sm:w-auto text-base py-3.5 px-6">
-              <Users className="h-5 w-5 text-[#0F4C5C]" />
+              <Users className="h-5 w-5 text-[#1B2A4A]" />
               <span>Team Pass</span>
             </Link>
           </div>
 
           {/* Studio Credit Watermark */}
-          <div className="pt-2 text-xs font-mono-code text-[#0F4C5C] font-bold">
-            Crafted by <span className="text-[#D9532F]">2:47 PM Studio</span> • Build · Beach · Belong
-          </div>
-        </div>
-
-        {/* HERO LIVE SHOWCASE CARDS */}
-        <div className="mt-16 relative mx-auto max-w-5xl">
-          <div className="relative rounded-3xl goa-panel p-6 sm:p-8 overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              {/* Card 1: Format A */}
-              <div className="goa-card p-6 text-center flex flex-col justify-between">
-                <div className="space-y-3">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#D9532F]/15 text-[#D9532F] border border-[#D9532F]/30">
-                    <Frame className="h-6 w-6" />
-                  </div>
-                  <div className="inline-block rounded-full bg-[#D9532F]/15 px-3 py-1 text-[11px] font-mono-code text-[#D9532F] font-bold">
-                    FORMAT A
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-[#1F2421]">PFP Frame Overlay</h3>
-                  <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-                    Square profile picture frame with "HackerHouse goa" border, palm canopy art & dates.
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <Link href="/frame" className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#D9532F] hover:underline">
-                    <span>Create PFP Frame</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Card 2: Format B */}
-              <div className="goa-card p-6 text-center flex flex-col justify-between border-[#D9532F]/40 shadow-md">
-                <div className="space-y-3">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#D9532F] text-white">
-                    <IdCard className="h-6 w-6" />
-                  </div>
-                  <div className="inline-block rounded-full bg-[#D9532F] px-3 py-1 text-[11px] font-mono-code text-white font-bold">
-                    FORMAT B
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-[#1F2421]">Builder ID Card</h3>
-                  <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-                    Official badge pass with photo, stack/role, fun title generator, QR code & PDF option.
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <Link href="/pass" className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#D9532F] hover:underline">
-                    <span>Generate ID Pass</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Card 3: Team Pass */}
-              <div className="goa-card p-6 text-center flex flex-col justify-between">
-                <div className="space-y-3">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#0F4C5C]/15 text-[#0F4C5C] border border-[#0F4C5C]/30">
-                    <Users className="h-6 w-6" />
-                  </div>
-                  <div className="inline-block rounded-full bg-[#0F4C5C]/15 px-3 py-1 text-[11px] font-mono-code text-[#0F4C5C] font-bold">
-                    GROUP / TEAM
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-[#1F2421]">Teammate Pass</h3>
-                  <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-                    Combine 2 or 3 teammates into one shared group graphic for team posts.
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <Link href="/team" className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#0F4C5C] hover:underline">
-                    <span>Build Team Graphic</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      {/* HASHTAG BANNER SECTION WITH WAVE DIVIDER */}
-      <GoaWaveRipples />
-      
-      <section className="relative bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#D9532F]/15 px-3.5 py-1 text-xs font-mono-code text-[#D9532F] border border-[#D9532F]/30 font-bold">
-                <XIcon className="h-3.5 w-3.5" />
-                <span>OFFICIAL HASHTAG</span>
-              </div>
-              <h2 className="font-display text-3xl font-extrabold text-[#1F2421] sm:text-4xl">
-                #FrameInGoa
-              </h2>
-              <p className="text-sm font-mono-code text-[#0F4C5C] max-w-xl font-semibold">
-                Share your generated card on X with <span className="text-[#D9532F] font-bold">#FrameInGoa</span> to join the official builder directory and get featured on the Hacker House Goa live wall.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <button onClick={copyHashtagText} className="goa-btn-secondary">
-                {copiedHashtag ? <Check className="h-4 w-4 text-[#D9532F]" /> : <Copy className="h-4 w-4" />}
-                <span>{copiedHashtag ? "COPIED TO CLIPBOARD!" : "COPY SHARE CAPTION"}</span>
-              </button>
-
-              <a
-                href="https://twitter.com/intent/tweet?text=Building%20at%20Hacker%20House%20Goa%202026!%20%F0%9F%8F%9D%EF%B8%8F%20%23FrameInGoa&url=https://frameingoa.com"
-                target="_blank"
-                rel="noreferrer"
-                className="goa-btn-primary"
-              >
-                <XIcon className="h-4 w-4" />
-                <span>TWEET #FRAMEINGOA</span>
-              </a>
-            </div>
+          <div className="pt-2 text-xs font-mono-code text-[#2B4C7E] font-bold">
+            Crafted by <span className="text-[#A63A2B]">2:47 PM Studio</span> • Build · Beach · Belong
           </div>
         </div>
       </section>
 
-      {/* WHY BUILD WITH US */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <h2 className="font-display text-3xl font-extrabold text-[#1F2421] sm:text-4xl">
-            Built for Builders, Near-Instant Render
+      {/* Format Showcase Section */}
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center space-y-3 mb-12">
+          <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A63A2B]">
+            // THREE DISTINCT BADGE FORMATS
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#121B2D]">
+            Craft Your Hacker House Credential
           </h2>
-          <p className="text-sm font-mono-code text-[#0F4C5C] font-bold">
-            No signup required • 100% Client-Side • Retina Canvas Export
+          <p className="text-sm font-mono-code text-[#2B4C7E] font-medium max-w-xl mx-auto">
+            Choose your format. All graphics are generated client-side with 100% privacy and zero server lag.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="goa-card p-6 space-y-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#D9532F]/15 text-[#D9532F]">
-              <Zap className="h-5 w-5" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Format A Card */}
+          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="rounded-lg bg-[#A63A2B]/10 border border-[#A63A2B]/20 px-3 py-1 text-xs font-mono-code font-bold text-[#A63A2B]">
+                  FORMAT A
+                </span>
+                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1000 × 1000 px</span>
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#121B2D]">PFP Profile Overlay</h3>
+              <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
+                Square profile picture frame featuring Azulejo ceramic tile rosettes, carved balcão arch linework, and custom badge overlay text.
+              </p>
             </div>
-            <h3 className="font-display text-lg font-bold text-[#1F2421]">Near-Instant Canvas Engine</h3>
-            <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-              No cloud rendering wait times. Your graphics compositing happens directly on high-DPR HTML5 &lt;canvas&gt; in 1–2 seconds.
-            </p>
+            <div className="pt-6">
+              <Link href="/frame" className="goa-btn-primary w-full text-center text-xs py-2.5">
+                <span>Generate PFP Overlay</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
-          <div className="goa-card p-6 space-y-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F2C063]/25 text-[#D9532F]">
-              <Share2 className="h-5 w-5" />
+          {/* Format B Card */}
+          <div className="goa-panel p-6 flex flex-col justify-between hover:scale-[1.01] transition-all relative">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="rounded-lg bg-[#1B2A4A] text-white px-3 py-1 text-xs font-mono-code font-bold">
+                  FORMAT B • MOST POPULAR
+                </span>
+                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1200 × 630 px</span>
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#121B2D]">Builder ID Event Badge</h3>
+              <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
+                Official horizontal event credential pass with photo upload, tech stack role selector, fun title generator, and dynamic QR code verification.
+              </p>
             </div>
-            <h3 className="font-display text-lg font-bold text-[#1F2421]">Dynamic Shareable Profile</h3>
-            <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-              Every generation gives you a public `/builder/[id]` link with server-rendered OG image previews for X/Twitter sharing.
-            </p>
+            <div className="pt-6">
+              <Link href="/pass" className="goa-btn-primary w-full text-center text-xs py-2.5">
+                <span>Create Builder ID Card</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
-          <div className="goa-card p-6 space-y-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0F4C5C]/15 text-[#0F4C5C]">
-              <Download className="h-5 w-5" />
+          {/* Format C Card */}
+          <div className="goa-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-all">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="rounded-lg bg-[#A63A2B]/10 border border-[#A63A2B]/20 px-3 py-1 text-xs font-mono-code font-bold text-[#A63A2B]">
+                  FORMAT C
+                </span>
+                <span className="text-xs font-mono-code text-[#2B4C7E] font-bold">1200 × 630 px</span>
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#121B2D]">Team / Group Pass</h3>
+              <p className="text-xs text-[#2B4C7E] leading-relaxed font-medium">
+                Combined delegation graphic for 2 or 3 teammates with Azulejo rosette corner points, team name, and individual stack roles.
+              </p>
             </div>
-            <h3 className="font-display text-lg font-bold text-[#1F2421]">PNG & PDF Event Passes</h3>
-            <p className="text-xs text-[#1F2421]/80 leading-relaxed font-medium">
-              Export pixel-perfect square PNGs for PFP frames or 1200x630 event badge cards with print-ready PDF options.
-            </p>
+            <div className="pt-6">
+              <Link href="/team" className="goa-btn-secondary w-full text-center text-xs py-2.5">
+                <span>Create Team Pass</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Feature Grid */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#1B2A4A]/15">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="goa-card p-5 space-y-2">
+            <Sparkles className="h-6 w-6 text-[#A63A2B]" />
+            <h4 className="font-display text-base font-bold text-[#121B2D]">Client-Side Instant</h4>
+            <p className="text-xs text-[#2B4C7E]">No upload waits. Canvas renders directly in browser.</p>
+          </div>
+          <div className="goa-card p-5 space-y-2">
+            <ShieldCheck className="h-6 w-6 text-[#1B2A4A]" />
+            <h4 className="font-display text-base font-bold text-[#121B2D]">100% Private</h4>
+            <p className="text-xs text-[#2B4C7E]">Your photos stay in your browser. No server storage required.</p>
+          </div>
+          <div className="goa-card p-5 space-y-2">
+            <Share2 className="h-6 w-6 text-[#A63A2B]" />
+            <h4 className="font-display text-base font-bold text-[#121B2D]">Shareable Profile URLs</h4>
+            <p className="text-xs text-[#2B4C7E]">Stateless base64 profile links with dynamic OpenGraph cards.</p>
+          </div>
+          <div className="goa-card p-5 space-y-2">
+            <Award className="h-6 w-6 text-[#1B2A4A]" />
+            <h4 className="font-display text-base font-bold text-[#121B2D]">Print & Export</h4>
+            <p className="text-xs text-[#2B4C7E]">Download high-res PNG & print-ready PDF credentials.</p>
           </div>
         </div>
       </section>

@@ -219,7 +219,7 @@ export default function TeamPage() {
                 {members.length < 3 && (
                   <button
                     onClick={handleAddMember}
-                    className="flex items-center gap-1 text-[11px] font-mono-code text-[#D9532F] hover:underline font-bold"
+                    className="flex items-center gap-1 text-[11px] font-mono-code text-[#A63A2B] hover:underline font-bold"
                   >
                     <Plus className="h-3 w-3" />
                     <span>ADD MEMBER</span>
@@ -230,7 +230,7 @@ export default function TeamPage() {
               {members.map((m, idx) => (
                 <div key={m.id} className="goa-card p-3 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono-code font-bold text-[#D9532F]">
+                    <span className="text-[11px] font-mono-code font-bold text-[#A63A2B]">
                       MEMBER #{idx + 1}
                     </span>
 
@@ -252,7 +252,7 @@ export default function TeamPage() {
                       onChange={(e) => handleUpdateMember(m.id, "name", e.target.value)}
                       placeholder="Name"
                       maxLength={18}
-                      className="rounded-lg border border-[#D9532F]/20 bg-[#FAF4E8] px-2.5 py-1.5 text-xs font-bold text-[#1F2421] focus:border-[#D9532F] focus:outline-none"
+                      className="rounded-lg border border-[#A63A2B]/20 bg-[#FDFBF7] px-2.5 py-1.5 text-xs font-bold text-[#121B2D] focus:border-[#A63A2B] focus:outline-none"
                     />
 
                     <input
@@ -261,13 +261,13 @@ export default function TeamPage() {
                       onChange={(e) => handleUpdateMember(m.id, "role", e.target.value)}
                       placeholder="Role / Title"
                       maxLength={18}
-                      className="rounded-lg border border-[#D9532F]/20 bg-[#FAF4E8] px-2.5 py-1.5 text-xs font-mono-code font-bold text-[#0F4C5C] focus:border-[#D9532F] focus:outline-none"
+                      className="rounded-lg border border-[#A63A2B]/20 bg-[#FDFBF7] px-2.5 py-1.5 text-xs font-mono-code font-bold text-[#2B4C7E] focus:border-[#A63A2B] focus:outline-none"
                     />
                   </div>
 
                   <button
                     onClick={() => fileInputRefs.current[m.id]?.click()}
-                    className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-[#D9532F]/30 bg-[#FAF4E8] py-1.5 text-[11px] font-mono-code font-bold text-[#D9532F] hover:bg-[#D9532F] hover:text-white transition-colors"
+                    className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-[#A63A2B]/30 bg-[#FDFBF7] py-1.5 text-[11px] font-mono-code font-bold text-[#A63A2B] hover:bg-[#A63A2B] hover:text-white transition-colors"
                   >
                     <Upload className="h-3 w-3" />
                     <span>{m.imageObj ? "Change Photo" : "Upload Photo"}</span>
