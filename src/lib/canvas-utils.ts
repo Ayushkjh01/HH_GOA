@@ -802,7 +802,7 @@ export function renderFormatB(
 
   ctx.font = "800 38px Syne, Space Grotesk, sans-serif";
   ctx.fillStyle = "#1F2421";
-  const displayName = options.name || "GOA BUILDER";
+  const displayName = options.name || "YOUR NAME HERE";
   ctx.fillText(displayName.toUpperCase(), contentX, 242);
   ctx.restore();
 
@@ -832,7 +832,7 @@ export function renderFormatB(
 
   ctx.font = "800 26px Syne, Space Grotesk, sans-serif";
   ctx.fillStyle = accentColor;
-  ctx.fillText(options.title || "GOA SUNSET CODER", contentX, 368);
+  ctx.fillText(options.title || "BUILDER TITLE", contentX, 368);
   ctx.restore();
 
   // QR Code & Specs
@@ -923,7 +923,7 @@ export function renderFormatC(
   ctx.textAlign = "center";
   ctx.font = "800 36px Syne, Space Grotesk, sans-serif";
   ctx.fillStyle = "#1F2421";
-  ctx.fillText(options.teamName ? options.teamName.toUpperCase() : "TEAM HACKWAVE", width / 2, 75);
+  ctx.fillText(options.teamName ? options.teamName.toUpperCase() : "YOUR TEAM NAME", width / 2, 75);
 
   ctx.font = "700 16px JetBrains Mono, monospace";
   ctx.fillStyle = "#D9532F";

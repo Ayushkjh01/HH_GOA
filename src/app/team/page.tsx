@@ -19,11 +19,11 @@ interface LocalMember {
 
 export default function TeamPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [teamName, setTeamName] = useState<string>("TEAM HACKWAVE");
+  const [teamName, setTeamName] = useState<string>("");
   const [members, setMembers] = useState<LocalMember[]>([
-    { id: "1", name: "ALEX RIVERS", role: "FULL-STACK DEV" },
-    { id: "2", name: "MAYA LIN", role: "SOLICITY ARCHITECT" },
-    { id: "3", name: "SAM TIDE", role: "AI RESEARCHER" },
+    { id: "1", name: "", role: "FULL-STACK DEV" },
+    { id: "2", name: "", role: "SMART CONTRACT DEV" },
+    { id: "3", name: "", role: "AI RESEARCHER" },
   ]);
   const [copiedLink, setCopiedLink] = useState(false);
   const [lastSavedId, setLastSavedId] = useState<string>("");

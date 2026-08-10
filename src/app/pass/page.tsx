@@ -20,9 +20,9 @@ export default function PassPage() {
   const [loading, setLoading] = useState(false);
 
   // Form Fields
-  const [name, setName] = useState<string>("AYUSH GUPTA");
+  const [name, setName] = useState<string>("");
   const [role, setRole] = useState<string>("FULL-STACK ENGINEER");
-  const [title, setTitle] = useState<string>(generateRandomTitle("FULL-STACK ENGINEER"));
+  const [title, setTitle] = useState<string>("");
   const [skin, setSkin] = useState<RenderOptionsFormatB["skin"]>("sunset");
   const [panX, setPanX] = useState<number>(0);
   const [panY, setPanY] = useState<number>(0);
