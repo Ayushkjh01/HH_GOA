@@ -1,4 +1,4 @@
-// Canvas Rendering Engine for HH Goa 2026 — Goan Portuguese-Heritage & Coastal Line-Art Fusion
+// Canvas Rendering Engine for HH Goa 2026 — High-Vibrancy Social Media Export Artwork
 
 export interface RenderOptionsFormatA {
   image?: HTMLImageElement | HTMLCanvasElement;
@@ -33,12 +33,13 @@ export interface RenderOptionsFormatC {
   skin: "sunset" | "sand" | "ocean" | "palm";
 }
 
-// Design System Constants: Goan Portuguese Heritage Palette
-const COLOR_WHITEWASH = "#FDFBF7";
-const COLOR_INDIGO = "#1B2A4A";
-const COLOR_LATERITE = "#A63A2B";
-const COLOR_AZULEJO = "#2B4C7E";
-const COLOR_CHARCOAL = "#121B2D";
+// High-Vibrancy Canvas Export Color Palette
+const COLOR_DEEP_BLUE = "#0D2B52";
+const COLOR_AZULEJO_BLUE = "#163B70";
+const COLOR_VIVID_RED = "#D84732";
+const COLOR_SUN_GOLD = "#F5C242";
+const COLOR_CHARCOAL = "#0B1426";
+const COLOR_SAND_BG = "#FFF8EC";
 
 // Draw crop image to canvas with cover/pan/zoom
 function drawImageCoverPanZoom(
@@ -67,13 +68,13 @@ function drawImageCoverPanZoom(
   ctx.restore();
 }
 
-// Helper 1: Fine Line-Art Coconut Palm Tree Canopy (Brand Color Linework)
+// Helper 1: High-Contrast Fine Line-Art Coconut Palm Tree Canopy
 function drawLineArtPalmCanopy(
   ctx: CanvasRenderingContext2D,
   x: number,
   y: number,
   scale = 1,
-  color = COLOR_INDIGO,
+  color = COLOR_DEEP_BLUE,
   flip = false
 ) {
   ctx.save();
@@ -82,7 +83,7 @@ function drawLineArtPalmCanopy(
   else ctx.scale(scale, scale);
 
   ctx.strokeStyle = color;
-  ctx.lineWidth = 2.5;
+  ctx.lineWidth = 3;
 
   // Trunk
   ctx.beginPath();
@@ -91,11 +92,11 @@ function drawLineArtPalmCanopy(
   ctx.stroke();
 
   // Coconuts
-  ctx.fillStyle = COLOR_LATERITE;
+  ctx.fillStyle = COLOR_VIVID_RED;
   ctx.beginPath();
-  ctx.arc(-18, -105, 8, 0, Math.PI * 2);
-  ctx.arc(-10, -110, 8.5, 0, Math.PI * 2);
-  ctx.arc(-24, -112, 7.5, 0, Math.PI * 2);
+  ctx.arc(-18, -105, 9, 0, Math.PI * 2);
+  ctx.arc(-10, -110, 9.5, 0, Math.PI * 2);
+  ctx.arc(-24, -112, 8.5, 0, Math.PI * 2);
   ctx.fill();
 
   // Spreading Fronds
@@ -110,9 +111,9 @@ function drawLineArtPalmCanopy(
     ctx.quadraticCurveTo(45, -25, 80, 20);
     ctx.stroke();
 
-    // Rib Frond Spines
-    ctx.strokeStyle = COLOR_LATERITE;
-    ctx.lineWidth = 1.5;
+    // Sun-Gold Rib Spines
+    ctx.strokeStyle = COLOR_SUN_GOLD;
+    ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(30, -5);
     ctx.lineTo(35, 3);
@@ -125,90 +126,7 @@ function drawLineArtPalmCanopy(
   ctx.restore();
 }
 
-// Helper 2: Fine Line-Art Beach Umbrella
-function drawLineArtBeachUmbrella(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  scale = 1,
-  color = COLOR_INDIGO
-) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.scale(scale, scale);
-
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2.2;
-
-  // Pole
-  ctx.beginPath();
-  ctx.moveTo(0, -30);
-  ctx.lineTo(0, 30);
-  ctx.stroke();
-
-  // Canopy Fill & Outline
-  ctx.fillStyle = "#FFFFFF";
-  ctx.beginPath();
-  ctx.moveTo(-35, -30);
-  ctx.quadraticCurveTo(0, -65, 35, -30);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  // Canopy Ribs
-  ctx.strokeStyle = COLOR_LATERITE;
-  ctx.lineWidth = 1.8;
-  ctx.beginPath();
-  ctx.moveTo(0, -58);
-  ctx.lineTo(0, -30);
-  ctx.moveTo(-18, -48);
-  ctx.quadraticCurveTo(-14, -38, -16, -30);
-  ctx.moveTo(18, -48);
-  ctx.quadraticCurveTo(14, -38, 16, -30);
-  ctx.stroke();
-
-  ctx.restore();
-}
-
-// Helper 3: Fine Line-Art Straw Sun Hat Accent
-function drawLineArtSunHat(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  scale = 1,
-  color = COLOR_LATERITE
-) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.scale(scale, scale);
-
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2;
-  ctx.fillStyle = "#FFFFFF";
-
-  // Brim
-  ctx.beginPath();
-  ctx.ellipse(0, 5, 28, 8, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-
-  // Crown
-  ctx.beginPath();
-  ctx.arc(0, 0, 14, Math.PI, 0);
-  ctx.fill();
-  ctx.stroke();
-
-  // Ribbon
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.arc(0, 3, 14, Math.PI * 0.8, Math.PI * 0.2, true);
-  ctx.stroke();
-
-  ctx.restore();
-}
-
-// Helper 4: Azulejo Corner Tile Rosette Motif
+// Helper 2: High-Vibrancy Azulejo Ceramic Rosette Motif
 function drawAzulejoCornerRosette(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -221,16 +139,18 @@ function drawAzulejoCornerRosette(
   ctx.translate(x, y);
   if (flipX || flipY) ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
 
+  // Outer Ceramic Tile Base
   ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = COLOR_AZULEJO;
-  ctx.lineWidth = 2.2;
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.rect(0, 0, size, size);
   ctx.fill();
   ctx.stroke();
 
-  ctx.strokeStyle = "rgba(43, 76, 126, 0.3)";
-  ctx.lineWidth = 1.2;
+  // Inner Diagonal Grid
+  ctx.strokeStyle = COLOR_AZULEJO_BLUE;
+  ctx.lineWidth = 1.5;
   ctx.beginPath();
   ctx.moveTo(0, 0);
   ctx.lineTo(size, size);
@@ -238,79 +158,81 @@ function drawAzulejoCornerRosette(
   ctx.lineTo(0, size);
   ctx.stroke();
 
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size * 0.32, 0, Math.PI * 2);
-  ctx.stroke();
-
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2 - size * 0.28, 4, 0, Math.PI * 2);
-  ctx.arc(size / 2, size / 2 + size * 0.28, 4, 0, Math.PI * 2);
-  ctx.arc(size / 2 - size * 0.28, size / 2, 4, 0, Math.PI * 2);
-  ctx.arc(size / 2 + size * 0.28, size / 2, 4, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillStyle = COLOR_INDIGO;
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, 5, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.restore();
-}
-
-// Helper 5: Shoreline Waves Linework at Bottom Edge
-function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, width: number) {
-  ctx.save();
-  ctx.strokeStyle = COLOR_INDIGO;
+  // Central Rosette Circle
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
   ctx.lineWidth = 2.5;
   ctx.beginPath();
+  ctx.arc(size / 2, size / 2, size * 0.34, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Laterite Red Petals
+  ctx.fillStyle = COLOR_VIVID_RED;
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2 - size * 0.28, 5, 0, Math.PI * 2);
+  ctx.arc(size / 2, size / 2 + size * 0.28, 5, 0, Math.PI * 2);
+  ctx.arc(size / 2 - size * 0.28, size / 2, 5, 0, Math.PI * 2);
+  ctx.arc(size / 2 + size * 0.28, size / 2, 5, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Sun-Gold Center Dot
+  ctx.fillStyle = COLOR_SUN_GOLD;
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, 6, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+// Helper 3: Shoreline Waves Linework
+function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, width: number) {
+  ctx.save();
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 3.5;
+  ctx.beginPath();
   for (let x = 0; x <= width; x += 50) {
-    ctx.quadraticCurveTo(x + 25, y - 10, x + 50, y);
+    ctx.quadraticCurveTo(x + 25, y - 12, x + 50, y);
   }
   ctx.stroke();
 
-  ctx.strokeStyle = COLOR_LATERITE;
-  ctx.lineWidth = 1.8;
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
   for (let x = 0; x <= width; x += 40) {
-    ctx.quadraticCurveTo(x + 20, y + 6, x + 40, y + 14);
+    ctx.quadraticCurveTo(x + 20, y + 8, x + 40, y + 16);
   }
   ctx.stroke();
   ctx.restore();
 }
 
-// Helper 6: Official Goan Heritage Stamp Seal
+// Helper 4: Official Goan Heritage Stamp Seal
 function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: number) {
   ctx.save();
   ctx.translate(x, y);
 
-  ctx.strokeStyle = COLOR_LATERITE;
-  ctx.lineWidth = 2.5;
-  ctx.globalAlpha = 0.85;
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 3;
 
   ctx.beginPath();
-  ctx.arc(0, 0, 36, 0, Math.PI * 2);
+  ctx.arc(0, 0, 38, 0, Math.PI * 2);
   ctx.stroke();
 
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 1.5;
   ctx.beginPath();
-  ctx.arc(0, 0, 30, 0, Math.PI * 2);
+  ctx.arc(0, 0, 32, 0, Math.PI * 2);
   ctx.stroke();
 
-  ctx.fillStyle = COLOR_INDIGO;
+  ctx.fillStyle = COLOR_DEEP_BLUE;
   ctx.font = "bold 9px JetBrains Mono, monospace";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText("GOAN HERITAGE", 0, -18);
 
-  ctx.font = "bold 11px Noto Sans Devanagari, sans-serif";
-  ctx.fillStyle = COLOR_LATERITE;
+  ctx.font = "bold 12px Noto Sans Devanagari, sans-serif";
+  ctx.fillStyle = COLOR_VIVID_RED;
   ctx.fillText("गोवा", 0, 0);
 
-  ctx.font = "bold 8px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
+  ctx.font = "bold 9px JetBrains Mono, monospace";
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
   ctx.fillText("★ 2026 ★", 0, 18);
 
   ctx.restore();
@@ -334,19 +256,23 @@ export function renderFormatA(
   const centerX = size / 2;
   const centerY = size / 2 - 20;
 
-  // Background Fill
-  ctx.fillStyle = COLOR_WHITEWASH;
+  // Rich Multi-Stage Warm Sand & Sun-Gold Background Radial Gradient
+  const bgGrad = ctx.createRadialGradient(centerX, centerY, 100, centerX, centerY, 680);
+  bgGrad.addColorStop(0, "#FFFDF7");
+  bgGrad.addColorStop(0.6, "#F9EFD9");
+  bgGrad.addColorStop(1, "#EED8AC");
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, size, size);
 
   // 4-Corner Azulejo Ceramic Rosettes
-  drawAzulejoCornerRosette(ctx, 25, 25, 75, false, false);
-  drawAzulejoCornerRosette(ctx, size - 100, 25, 75, true, false);
-  drawAzulejoCornerRosette(ctx, 25, size - 100, 75, false, true);
-  drawAzulejoCornerRosette(ctx, size - 100, size - 100, 75, true, true);
+  drawAzulejoCornerRosette(ctx, 25, 25, 80, false, false);
+  drawAzulejoCornerRosette(ctx, size - 105, 25, 80, true, false);
+  drawAzulejoCornerRosette(ctx, 25, size - 105, 80, false, true);
+  drawAzulejoCornerRosette(ctx, size - 105, size - 105, 80, true, true);
 
-  // Line-Art Coconut Palm Trees on Left & Right Corners (Format A Benchmark)
-  drawLineArtPalmCanopy(ctx, 80, size - 40, 1.2, COLOR_INDIGO, false);
-  drawLineArtPalmCanopy(ctx, size - 80, size - 40, 1.2, COLOR_INDIGO, true);
+  // Line-Art Coconut Palm Trees on Left & Right Corners
+  drawLineArtPalmCanopy(ctx, 85, size - 40, 1.3, COLOR_DEEP_BLUE, false);
+  drawLineArtPalmCanopy(ctx, size - 85, size - 40, 1.3, COLOR_DEEP_BLUE, true);
 
   // Photo Circle
   const photoRadius = 340;
@@ -371,29 +297,36 @@ export function renderFormatA(
   } else {
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(centerX - photoRadius, centerY - photoRadius, photoRadius * 2, photoRadius * 2);
-    ctx.fillStyle = COLOR_LATERITE;
-    ctx.font = "bold 30px Playfair Display, serif";
+    ctx.fillStyle = COLOR_VIVID_RED;
+    ctx.font = "bold 32px Playfair Display, serif";
     ctx.textAlign = "center";
     ctx.fillText("DROP PHOTO HERE", centerX, centerY);
   }
   ctx.restore();
 
-  // Deep Indigo Branded Outer Ring
+  // High-Impact 3D Saturated Outer Ring (Vivid Red + Sun Gold + Ocean Blue Gradient)
   ctx.save();
-  const ringWidth = 24;
+  const ringWidth = 26;
   ctx.lineWidth = ringWidth;
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.shadowColor = "rgba(27, 42, 74, 0.25)";
-  ctx.shadowBlur = 24;
+
+  const ringGrad = ctx.createConicGradient(-Math.PI / 2, centerX, centerY);
+  ringGrad.addColorStop(0, COLOR_VIVID_RED);
+  ringGrad.addColorStop(0.35, COLOR_SUN_GOLD);
+  ringGrad.addColorStop(0.7, COLOR_DEEP_BLUE);
+  ringGrad.addColorStop(1, COLOR_VIVID_RED);
+
+  ctx.strokeStyle = ringGrad;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.4)";
+  ctx.shadowBlur = 32;
   ctx.beginPath();
   ctx.arc(centerX, centerY, photoRadius + ringWidth / 2 + 4, 0, Math.PI * 2);
   ctx.stroke();
   ctx.restore();
 
-  // Inner Whitewash Accent Ring
+  // Inner Whitewash Ring
   ctx.save();
-  ctx.lineWidth = 3.5;
-  ctx.strokeStyle = COLOR_WHITEWASH;
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = "#FFFFFF";
   ctx.beginPath();
   ctx.arc(centerX, centerY, photoRadius - 2, 0, Math.PI * 2);
   ctx.stroke();
@@ -404,67 +337,67 @@ export function renderFormatA(
 
   // Top Pill Header: "HackerHouse goa"
   ctx.save();
-  const topPillW = 460;
-  const topPillH = 68;
+  const topPillW = 480;
+  const topPillH = 72;
   const topPillX = centerX - topPillW / 2;
-  const topPillY = centerY - photoRadius - 42;
+  const topPillY = centerY - photoRadius - 44;
 
   ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3;
-  ctx.shadowColor = "rgba(27, 42, 74, 0.15)";
-  ctx.shadowBlur = 18;
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 3.5;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.25)";
+  ctx.shadowBlur = 20;
   ctx.beginPath();
-  ctx.roundRect(topPillX, topPillY, topPillW, topPillH, 34);
+  ctx.roundRect(topPillX, topPillY, topPillW, topPillH, 36);
   ctx.fill();
   ctx.stroke();
 
   ctx.textBaseline = "middle";
   ctx.shadowBlur = 0;
 
-  ctx.font = "800 26px Playfair Display, serif";
+  ctx.font = "800 28px Playfair Display, serif";
   const w1 = ctx.measureText("HackerHouse ").width;
-  ctx.font = "800 30px Noto Sans Devanagari, sans-serif";
+  ctx.font = "800 32px Noto Sans Devanagari, sans-serif";
   const w2 = ctx.measureText("गोवा").width;
   const totalTextW = w1 + w2;
   const startX = centerX - totalTextW / 2;
 
   ctx.textAlign = "left";
-  ctx.font = "800 26px Playfair Display, serif";
+  ctx.font = "800 28px Playfair Display, serif";
   ctx.fillStyle = COLOR_CHARCOAL;
   ctx.fillText("HackerHouse ", startX, topPillY + topPillH / 2);
 
-  ctx.font = "800 30px Noto Sans Devanagari, sans-serif";
-  ctx.fillStyle = COLOR_LATERITE;
+  ctx.font = "800 32px Noto Sans Devanagari, sans-serif";
+  ctx.fillStyle = COLOR_VIVID_RED;
   ctx.fillText("गोवा", startX + w1, topPillY + topPillH / 2);
   ctx.restore();
 
   // Bottom Banner Bar
   ctx.save();
-  const bottomBarW = 760;
-  const bottomBarH = 110;
+  const bottomBarW = 780;
+  const bottomBarH = 114;
   const bottomBarX = centerX - bottomBarW / 2;
-  const bottomBarY = centerY + photoRadius - 50;
+  const bottomBarY = centerY + photoRadius - 48;
 
   ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3;
-  ctx.shadowColor = "rgba(27, 42, 74, 0.15)";
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 3.5;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.25)";
   ctx.shadowBlur = 24;
   ctx.beginPath();
-  ctx.roundRect(bottomBarX, bottomBarY, bottomBarW, bottomBarH, 30);
+  ctx.roundRect(bottomBarX, bottomBarY, bottomBarW, bottomBarH, 32);
   ctx.fill();
   ctx.stroke();
 
   const userBadge = options.badgeText || "BUILDER • GOA 2026";
   ctx.textAlign = "center";
-  ctx.font = "800 32px Playfair Display, serif";
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.fillText(userBadge, centerX, bottomBarY + 44);
+  ctx.font = "900 34px Playfair Display, serif";
+  ctx.fillStyle = COLOR_VIVID_RED;
+  ctx.fillText(userBadge, centerX, bottomBarY + 46);
 
   ctx.font = "700 17px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
-  ctx.fillText("28–31 OCT 2026 • GOA, INDIA • #FrameInGoa", centerX, bottomBarY + 84);
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
+  ctx.fillText("28–31 OCT 2026 • GOA, INDIA • #FrameInGoa", centerX, bottomBarY + 86);
   ctx.restore();
 }
 
@@ -484,9 +417,25 @@ export function renderFormatB(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Background Fill
-  ctx.fillStyle = COLOR_WHITEWASH;
+  // Sand Background Fill
+  ctx.fillStyle = COLOR_SAND_BG;
   ctx.fillRect(0, 0, width, height);
+
+  // Top Deep Ocean Blue Header Hero Block
+  const headerH = 115;
+  const headGrad = ctx.createLinearGradient(0, 0, width, 0);
+  headGrad.addColorStop(0, COLOR_DEEP_BLUE);
+  headGrad.addColorStop(1, COLOR_AZULEJO_BLUE);
+  ctx.fillStyle = headGrad;
+  ctx.fillRect(0, 0, width, headerH);
+
+  // Gold Header Border Line
+  ctx.strokeStyle = COLOR_SUN_GOLD;
+  ctx.lineWidth = 3.5;
+  ctx.beginPath();
+  ctx.moveTo(0, headerH);
+  ctx.lineTo(width, headerH);
+  ctx.stroke();
 
   // Corner Azulejo Ceramic Tile Accents
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
@@ -494,23 +443,42 @@ export function renderFormatB(
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
 
-  // Fine Line-Art Beach Umbrella Silhouette on Right Side
-  drawLineArtBeachUmbrella(ctx, width - 110, 140, 1.1, COLOR_INDIGO);
+  // Header Title Inside Blue Hero Bar
+  ctx.save();
+  ctx.textBaseline = "middle";
+  ctx.font = "900 34px Playfair Display, serif";
+  const w1 = ctx.measureText("HackerHouse ").width;
+
+  ctx.textAlign = "left";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fillText("HackerHouse ", 85, headerH / 2);
+
+  ctx.font = "900 38px Noto Sans Devanagari, sans-serif";
+  ctx.fillStyle = COLOR_SUN_GOLD;
+  ctx.fillText("गोवा", 85 + w1, headerH / 2);
+
+  ctx.font = "700 14px JetBrains Mono, monospace";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.textAlign = "right";
+  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 85, headerH / 2);
+  ctx.restore();
 
   // Outer Card Border
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3.5;
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 4;
   ctx.strokeRect(18, 18, width - 36, height - 36);
 
   // Photo Frame Box
   const photoSize = 360;
   const photoX = 65;
-  const photoY = (height - photoSize) / 2 + 10;
+  const photoY = 145;
 
   ctx.save();
   ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3;
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 3.5;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.25)";
+  ctx.shadowBlur = 18;
   ctx.beginPath();
   ctx.roundRect(photoX - 8, photoY - 8, photoSize + 16, photoSize + 16, 24);
   ctx.fill();
@@ -536,9 +504,9 @@ export function renderFormatB(
       options.zoom
     );
   } else {
-    ctx.fillStyle = "#FDFBF7";
+    ctx.fillStyle = "#FFFDF7";
     ctx.fillRect(photoX, photoY, photoSize, photoSize);
-    ctx.fillStyle = COLOR_LATERITE;
+    ctx.fillStyle = COLOR_VIVID_RED;
     ctx.font = "bold 24px Playfair Display, serif";
     ctx.textAlign = "center";
     ctx.fillText("UPLOAD PHOTO", photoX + photoSize / 2, photoY + photoSize / 2);
@@ -548,87 +516,57 @@ export function renderFormatB(
   // Right Side Builder Info
   const contentX = photoX + photoSize + 55;
 
-  // Header Title
-  ctx.save();
-  ctx.textBaseline = "top";
-  ctx.font = "800 32px Playfair Display, serif";
-  const w1 = ctx.measureText("HackerHouse ").width;
-  ctx.font = "800 36px Noto Sans Devanagari, sans-serif";
-  const w2 = ctx.measureText("गोवा").width;
-
-  ctx.textAlign = "left";
-  ctx.font = "800 32px Playfair Display, serif";
-  ctx.fillStyle = COLOR_CHARCOAL;
-  ctx.fillText("HackerHouse ", contentX, 60);
-
-  ctx.font = "800 36px Noto Sans Devanagari, sans-serif";
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.fillText("गोवा", contentX + w1, 56);
-
-  ctx.font = "700 13px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
-  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", contentX + w1 + w2 + 20, 68);
-  ctx.restore();
-
-  // Separator Line
-  ctx.strokeStyle = "rgba(27, 42, 74, 0.2)";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(contentX, 115);
-  ctx.lineTo(width - 65, 115);
-  ctx.stroke();
-
   // Builder Name
   ctx.save();
   ctx.font = "700 13px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
-  ctx.fillText("// BUILDER NAME", contentX, 155);
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
+  ctx.fillText("// BUILDER NAME", contentX, 170);
 
-  ctx.font = "900 36px Playfair Display, serif";
+  ctx.font = "900 38px Playfair Display, serif";
   ctx.fillStyle = COLOR_CHARCOAL;
   const displayName = options.name || "YOUR NAME HERE";
-  ctx.fillText(displayName.toUpperCase(), contentX, 196);
+  ctx.fillText(displayName.toUpperCase(), contentX, 212);
   ctx.restore();
 
-  // Role Pill
+  // Role Pill (Vivid Sun-Gold Fill with Red Border)
   ctx.save();
   const roleText = (options.role || "FULL-STACK ENGINEER").toUpperCase();
-  ctx.font = "bold 13px JetBrains Mono, monospace";
-  const roleW = ctx.measureText(roleText).width + 32;
+  ctx.font = "bold 14px JetBrains Mono, monospace";
+  const roleW = ctx.measureText(roleText).width + 36;
 
-  ctx.fillStyle = "rgba(166, 58, 43, 0.12)";
-  ctx.strokeStyle = COLOR_LATERITE;
-  ctx.lineWidth = 1.8;
+  ctx.fillStyle = COLOR_SUN_GOLD;
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.roundRect(contentX, 224, roleW, 34, 17);
+  ctx.roundRect(contentX, 240, roleW, 36, 18);
   ctx.fill();
   ctx.stroke();
 
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.fillText(roleText, contentX + 16, 246);
+  ctx.fillStyle = COLOR_DEEP_BLUE;
+  ctx.fillText(roleText, contentX + 18, 263);
   ctx.restore();
 
   // Title
   ctx.save();
   ctx.font = "700 13px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
-  ctx.fillText("// DESIGNATION / TITLE", contentX, 292);
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
+  ctx.fillText("// DESIGNATION / TITLE", contentX, 310);
 
-  ctx.font = "800 24px Playfair Display, serif";
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.fillText(options.title || "BUILDER TITLE", contentX, 324);
+  ctx.font = "800 26px Playfair Display, serif";
+  ctx.fillStyle = COLOR_VIVID_RED;
+  ctx.fillText(options.title || "BUILDER TITLE", contentX, 344);
   ctx.restore();
 
   // QR Code
   if (options.qrCanvas) {
     const qrSize = 110;
     const qrX = contentX;
-    const qrY = 365;
+    const qrY = 385;
 
     ctx.save();
     ctx.fillStyle = "#FFFFFF";
-    ctx.strokeStyle = COLOR_INDIGO;
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = COLOR_DEEP_BLUE;
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.roundRect(qrX - 6, qrY - 6, qrSize + 12, qrSize + 12, 14);
     ctx.fill();
@@ -638,13 +576,13 @@ export function renderFormatB(
 
     ctx.save();
     ctx.font = "700 11px JetBrains Mono, monospace";
-    ctx.fillStyle = COLOR_AZULEJO;
+    ctx.fillStyle = COLOR_AZULEJO_BLUE;
     ctx.fillText("SCAN TO VERIFY", qrX, qrY + qrSize + 22);
     ctx.restore();
   }
 
   // Official Seal
-  drawGoanHeritageStampSeal(ctx, width - 130, 420);
+  drawGoanHeritageStampSeal(ctx, width - 130, 435);
 
   // Shoreline Waves Linework at Bottom Edge
   drawShorelineWaveLinework(ctx, height - 28, width);
@@ -652,7 +590,7 @@ export function renderFormatB(
   // Footer Credit
   ctx.save();
   ctx.font = "700 14px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
   ctx.textAlign = "center";
   ctx.fillText("2:47 PM Studio • OFFICIAL EVENT BADGE • #FrameInGoa", width / 2, height - 42);
   ctx.restore();
@@ -674,9 +612,25 @@ export function renderFormatC(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Background Fill
-  ctx.fillStyle = COLOR_WHITEWASH;
+  // Sand Background Fill
+  ctx.fillStyle = COLOR_SAND_BG;
   ctx.fillRect(0, 0, width, height);
+
+  // Top Deep Ocean Blue Header Block
+  const headerH = 120;
+  const headGrad = ctx.createLinearGradient(0, 0, width, 0);
+  headGrad.addColorStop(0, COLOR_DEEP_BLUE);
+  headGrad.addColorStop(1, COLOR_AZULEJO_BLUE);
+  ctx.fillStyle = headGrad;
+  ctx.fillRect(0, 0, width, headerH);
+
+  // Gold Line
+  ctx.strokeStyle = COLOR_SUN_GOLD;
+  ctx.lineWidth = 3.5;
+  ctx.beginPath();
+  ctx.moveTo(0, headerH);
+  ctx.lineTo(width, headerH);
+  ctx.stroke();
 
   // Corner Azulejo Rosettes
   drawAzulejoCornerRosette(ctx, 20, 20, 50, false, false);
@@ -684,33 +638,22 @@ export function renderFormatC(
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
 
-  // Straw Sun Hat Line-Art Accent Icon Top Right
-  drawLineArtSunHat(ctx, width - 130, 80, 0.9, COLOR_LATERITE);
-
   // Outer Card Border
-  ctx.strokeStyle = COLOR_INDIGO;
-  ctx.lineWidth = 3.5;
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 4;
   ctx.strokeRect(18, 18, width - 36, height - 36);
 
-  // Top Header
+  // Top Header Inside Blue Bar
   ctx.save();
   ctx.textAlign = "center";
   ctx.font = "900 36px Playfair Display, serif";
-  ctx.fillStyle = COLOR_CHARCOAL;
-  ctx.fillText(options.teamName ? options.teamName.toUpperCase() : "YOUR TEAM NAME", width / 2, 75);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fillText(options.teamName ? options.teamName.toUpperCase() : "YOUR TEAM NAME", width / 2, 55);
 
   ctx.font = "700 15px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_LATERITE;
-  ctx.fillText("HackerHouse goa 2026 • DELEGATION PASS • 28–31 OCT 2026", width / 2, 110);
+  ctx.fillStyle = COLOR_SUN_GOLD;
+  ctx.fillText("HackerHouse goa 2026 • DELEGATION PASS • 28–31 OCT 2026", width / 2, 92);
   ctx.restore();
-
-  // Header Divider
-  ctx.strokeStyle = "rgba(27, 42, 74, 0.2)";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(80, 130);
-  ctx.lineTo(width - 80, 130);
-  ctx.stroke();
 
   // Render Team Members
   const memberCount = Math.min(Math.max(options.members.length, 2), 3);
@@ -724,8 +667,10 @@ export function renderFormatC(
 
     ctx.save();
     ctx.fillStyle = "#FFFFFF";
-    ctx.strokeStyle = COLOR_INDIGO;
-    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = COLOR_VIVID_RED;
+    ctx.lineWidth = 3;
+    ctx.shadowColor = "rgba(13, 43, 82, 0.2)";
+    ctx.shadowBlur = 16;
     ctx.beginPath();
     ctx.roundRect(cardX, cardY, cardWidth, cardHeight, 20);
     ctx.fill();
@@ -744,9 +689,9 @@ export function renderFormatC(
     if (m.image) {
       drawImageCoverPanZoom(ctx, m.image, px, py, pSize, pSize, 0, 0, 1);
     } else {
-      ctx.fillStyle = "#FDFBF7";
+      ctx.fillStyle = "#FFFDF7";
       ctx.fillRect(px, py, pSize, pSize);
-      ctx.fillStyle = COLOR_LATERITE;
+      ctx.fillStyle = COLOR_VIVID_RED;
       ctx.font = "bold 16px JetBrains Mono, monospace";
       ctx.textAlign = "center";
       ctx.fillText(`MEMBER #${idx + 1}`, px + pSize / 2, py + pSize / 2);
@@ -759,9 +704,23 @@ export function renderFormatC(
     ctx.fillStyle = COLOR_CHARCOAL;
     ctx.fillText((m.name || `MEMBER #${idx + 1}`).toUpperCase(), cardX + cardWidth / 2, cardY + pSize + 55);
 
-    ctx.font = "700 12px JetBrains Mono, monospace";
-    ctx.fillStyle = COLOR_LATERITE;
-    ctx.fillText((m.role || "DELEGATE").toUpperCase(), cardX + cardWidth / 2, cardY + pSize + 82);
+    // Role Pill (Sun-Gold Fill)
+    const rText = (m.role || "DELEGATE").toUpperCase();
+    ctx.font = "bold 12px JetBrains Mono, monospace";
+    const rW = ctx.measureText(rText).width + 24;
+    const rx = cardX + (cardWidth - rW) / 2;
+    const ry = cardY + pSize + 68;
+
+    ctx.fillStyle = COLOR_SUN_GOLD;
+    ctx.strokeStyle = COLOR_DEEP_BLUE;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(rx, ry, rW, 26, 13);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = COLOR_DEEP_BLUE;
+    ctx.fillText(rText, cardX + cardWidth / 2, ry + 17);
     ctx.restore();
   });
 
@@ -771,7 +730,7 @@ export function renderFormatC(
   // Footer Credit
   ctx.save();
   ctx.font = "700 14px JetBrains Mono, monospace";
-  ctx.fillStyle = COLOR_AZULEJO;
+  ctx.fillStyle = COLOR_AZULEJO_BLUE;
   ctx.textAlign = "center";
   ctx.fillText("#FrameInGoa • 2:47 PM Studio • LESS NOISE. MORE SIGNAL.", width / 2, height - 42);
   ctx.restore();
