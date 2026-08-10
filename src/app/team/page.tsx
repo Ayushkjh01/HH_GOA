@@ -277,8 +277,7 @@ export default function TeamPage() {
                     type="file"
                     ref={(el) => { fileInputRefs.current[m.id] = el; }}
                     onChange={(e) => handleMemberFile(m.id, e)}
-                    accept="image/*"
-                    capture="environment"
+                    accept="image/*,.heic,.heif"
                     className="hidden"
                   />
                 </div>

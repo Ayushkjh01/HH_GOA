@@ -326,8 +326,7 @@ export default function PassPage() {
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
-                accept="image/*"
-                capture="environment"
+                accept="image/*,.heic,.heif"
                 className="hidden"
               />
             </div>

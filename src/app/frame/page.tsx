@@ -257,12 +257,11 @@ export default function FramePage() {
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
-                accept="image/*"
-                capture="environment"
+                accept="image/*,.heic,.heif"
                 className="hidden"
               />
               <p className="text-[11px] font-mono-code text-[#0F4C5C] text-center font-semibold">
-                Supports iOS camera capture & automatic HEIC conversion.
+                Supports Photo Library, camera capture & automatic HEIC conversion.
               </p>
             </div>
 

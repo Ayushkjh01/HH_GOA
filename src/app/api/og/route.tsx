@@ -55,7 +55,7 @@ export async function GET(request: Request) {
                   color: "#1c1917",
                 }}
               >
-                HackerHouse <span style={{ color: "#e66c37" }}>गोवा</span>
+                HackerHouse <span style={{ color: "#e66c37" }}>GOA</span>
               </div>
             </div>
             <div
