@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { decodePayload } from "@/lib/share-utils";
 
-export const runtime = "edge";
 
 export async function GET(request: Request) {
   try {
