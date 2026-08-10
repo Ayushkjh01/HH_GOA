@@ -64,7 +64,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${devanagari.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FDFBF7] text-[#121B2D] selection:bg-[#A63A2B] selection:text-white">
+      <body className="min-h-full flex flex-col goa-beach-town-bg text-[#121B2D] selection:bg-[#A63A2B] selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -25,6 +25,15 @@ export default function FramePage() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [lastSavedId, setLastSavedId] = useState<string>("");
 
+  // Pre-load default sample builder photo
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/sample_builder.jpg";
+    img.onload = () => {
+      setImageObj(img);
+    };
+  }, []);
+
   // Handle Image Upload & HEIC Conversion
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

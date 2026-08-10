@@ -32,6 +32,15 @@ export default function PassPage() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [lastSavedId, setLastSavedId] = useState<string>("");
 
+  // Pre-load default sample builder photo
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/sample_builder.jpg";
+    img.onload = () => {
+      setImageObj(img);
+    };
+  }, []);
+
   // Shuffle Title
   const handleShuffleTitle = () => {
     setTitle(generateRandomTitle(role));
