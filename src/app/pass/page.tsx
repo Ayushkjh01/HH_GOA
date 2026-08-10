@@ -21,7 +21,7 @@ export default function PassPage() {
 
   // Form Fields
   const [name, setName] = useState<string>("");
-  const [role, setRole] = useState<string>("FULL-STACK ENGINEER");
+  const [role, setRole] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [skin, setSkin] = useState<RenderOptionsFormatB["skin"]>("sunset");
   const [panX, setPanX] = useState<number>(0);
@@ -356,6 +356,7 @@ export default function PassPage() {
                   onChange={(e) => setRole(e.target.value)}
                   className="w-full rounded-xl border border-[#A63A2B]/30 bg-white px-3.5 py-2.5 text-xs font-mono-code font-bold text-[#121B2D] focus:border-[#A63A2B] focus:outline-none shadow-xs"
                 >
+                  <option value="">Select your primary role...</option>
                   {getDefaultRoles().map((r) => (
                     <option key={r} value={r.toUpperCase()}>
                       {r.toUpperCase()}

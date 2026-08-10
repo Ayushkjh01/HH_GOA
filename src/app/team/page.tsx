@@ -21,9 +21,9 @@ export default function TeamPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [teamName, setTeamName] = useState<string>("");
   const [members, setMembers] = useState<LocalMember[]>([
-    { id: "1", name: "", role: "FULL-STACK DEV" },
-    { id: "2", name: "", role: "SMART CONTRACT DEV" },
-    { id: "3", name: "", role: "AI RESEARCHER" },
+    { id: "1", name: "", role: "" },
+    { id: "2", name: "", role: "" },
+    { id: "3", name: "", role: "" },
   ]);
   const [copiedLink, setCopiedLink] = useState(false);
   const [lastSavedId, setLastSavedId] = useState<string>("");
@@ -259,7 +259,7 @@ export default function TeamPage() {
                       type="text"
                       value={m.role}
                       onChange={(e) => handleUpdateMember(m.id, "role", e.target.value)}
-                      placeholder="Role / Title"
+                      placeholder="Role e.g. Developer"
                       maxLength={18}
                       className="rounded-lg border border-[#A63A2B]/20 bg-[#FDFBF7] px-2.5 py-1.5 text-xs font-mono-code font-bold text-[#2B4C7E] focus:border-[#A63A2B] focus:outline-none"
                     />
