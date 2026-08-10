@@ -158,7 +158,7 @@ export default function Home() {
               </p>
             </div>
             <div className="pt-6">
-              <Link href="/team" className="goa-btn-secondary w-full text-center text-xs py-2.5">
+              <Link href="/team" className="goa-btn-primary w-full text-center text-xs py-2.5">
                 <span>Create Team Pass</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>

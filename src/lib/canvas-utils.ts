@@ -667,16 +667,49 @@ export function renderFormatC(
   ctx.lineWidth = 4;
   ctx.strokeRect(18, 18, width - 36, height - 36);
 
-  // Top Header Inside Blue Bar
+  // Top Header Inside Blue Bar (MATCHES FORMAT B 100%)
   ctx.save();
-  ctx.textAlign = "center";
-  ctx.font = "900 36px Playfair Display, serif";
-  ctx.fillStyle = COLOR_WHITE;
-  ctx.fillText(options.teamName ? options.teamName.toUpperCase() : "YOUR TEAM NAME", width / 2, 55);
+  ctx.textBaseline = "middle";
+  ctx.font = "900 34px Playfair Display, serif";
+  const w1 = ctx.measureText("HackerHouse ").width;
 
-  ctx.font = "700 15px JetBrains Mono, monospace";
+  ctx.textAlign = "left";
+  ctx.fillStyle = COLOR_WHITE;
+  ctx.fillText("HackerHouse ", 85, headerH / 2);
+
+  ctx.font = "900 38px Noto Sans Devanagari, sans-serif";
   ctx.fillStyle = COLOR_SUN_GOLD;
-  ctx.fillText("HackerHouse goa 2026 • DELEGATION PASS • 28–31 OCT 2026", width / 2, 92);
+  ctx.fillText("गोवा", 85 + w1, headerH / 2);
+
+  ctx.font = "700 14px JetBrains Mono, monospace";
+  ctx.fillStyle = COLOR_WHITE;
+  ctx.textAlign = "right";
+  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 85, headerH / 2);
+  ctx.restore();
+
+  // Team Name Section Bar (High Contrast Panel)
+  ctx.save();
+  const teamBannerW = 760;
+  const teamBannerH = 46;
+  const teamBannerX = (width - teamBannerW) / 2;
+  const teamBannerY = 135;
+
+  ctx.fillStyle = COLOR_WHITE;
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = "rgba(13, 43, 82, 0.15)";
+  ctx.shadowBlur = 12;
+  ctx.beginPath();
+  ctx.roundRect(teamBannerX, teamBannerY, teamBannerW, teamBannerH, 23);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = "900 22px Playfair Display, serif";
+  ctx.fillStyle = COLOR_VIVID_RED;
+  const displayTeam = options.teamName ? options.teamName.toUpperCase() : "YOUR TEAM NAME";
+  ctx.fillText(`DELEGATION PASS // ${displayTeam}`, width / 2, teamBannerY + 23);
   ctx.restore();
 
   // Render Team Members
@@ -684,7 +717,7 @@ export function renderFormatC(
   const cardWidth = memberCount === 2 ? 360 : 310;
   const cardHeight = 360;
   const startX = (width - (memberCount * cardWidth + (memberCount - 1) * 35)) / 2;
-  const cardY = 160;
+  const cardY = 195;
 
   options.members.slice(0, memberCount).forEach((m, idx) => {
     const cardX = startX + idx * (cardWidth + 35);
