@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-sand: #faf4e8;
+    --bg-sand-depth: #f5e8d0;
+    --card-white: #ffffff;
+    --accent-terracotta: #d9532f;
+    --accent-teal: #0f4c5c;
+    --accent-amber: #f2c063;
+    --text-main: #1f2421;
+    --text-teal: #0f4c5c;
+    --border-terracotta: rgba(217, 83, 47, 0.25);
+  }
+
+  body {
+    background-color: #faf4e8;
+    color: #1f2421;
+    font-family: var(--font-space), system-ui, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Single Cohesive Card & Panel Design System */
+.goa-card {
+  background: #ffffff;
+  border: 1px solid rgba(217, 83, 47, 0.22);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -5px rgba(217, 83, 47, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.goa-card:hover {
+  border-color: rgba(217, 83, 47, 0.5);
+  box-shadow: 0 16px 36px -4px rgba(217, 83, 47, 0.15);
+  transform: translateY(-2px);
+}
+
+.goa-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 83, 47, 0.25);
+  border-radius: 1.5rem;
+  box-shadow: 0 16px 40px -10px rgba(217, 83, 47, 0.1);
+}
+
+/* Single Cohesive Button System */
+.goa-btn-primary {
+  background-color: #d9532f;
+  color: #ffffff;
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 14px rgba(217, 83, 47, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.goa-btn-primary:hover {
+  background-color: #c44624;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(217, 83, 47, 0.35);
+}
+
+.goa-btn-secondary {
+  background-color: #ffffff;
+  color: #0f4c5c;
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  border: 1px solid rgba(15, 76, 92, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.goa-btn-secondary:hover {
+  background-color: #faf4e8;
+  border-color: #0f4c5c;
+  color: #0f4c5c;
+  transform: scale(1.02);
+}
+
+/* Background Sand Mesh */
+.bg-mesh-goa {
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(242, 192, 99, 0.3) 0px, transparent 55%),
+    radial-gradient(at 90% 10%, rgba(217, 83, 47, 0.18) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(15, 76, 92, 0.1) 0px, transparent 60%);
+}
+
+.bg-grain {
+  background-image: radial-gradient(rgba(217, 83, 47, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf4e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9532f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0f4c5c;
+}
+
+/* Font Helper Classes */
+.font-devanagari {
+  font-family: var(--font-devanagari), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), var(--font-space), system-ui, sans-serif;
+}
+
+.font-mono-code {
+  font-family: var(--font-mono), monospace;
+}
