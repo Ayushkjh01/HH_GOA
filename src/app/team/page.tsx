@@ -28,25 +28,6 @@ export default function TeamPage() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [lastSavedId, setLastSavedId] = useState<string>("");
 
-  // Pre-load default sample teammate photos
-  useEffect(() => {
-    const img1 = new Image();
-    img1.src = "/sample_builder.jpg";
-    img1.onload = () => {
-      setMembers((prev) =>
-        prev.map((m, idx) => (idx === 0 ? { ...m, imageObj: img1 } : m))
-      );
-    };
-
-    const img2 = new Image();
-    img2.src = "/sample_builder_2.jpg";
-    img2.onload = () => {
-      setMembers((prev) =>
-        prev.map((m, idx) => (idx === 1 ? { ...m, imageObj: img2 } : m))
-      );
-    };
-  }, []);
-
   const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
 
   const handleMemberFile = async (id: string, e: React.ChangeEvent<HTMLInputElement>) => {

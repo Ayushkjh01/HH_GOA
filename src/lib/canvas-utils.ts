@@ -1,4 +1,4 @@
-// Canvas Rendering Engine for HH Goa 2026 — High-Vibrancy & Rich Visual Artwork Export
+// Canvas Rendering Engine for HH Goa 2026 — Goan Beach Town Scenery Canvas Artwork
 
 export interface RenderOptionsFormatA {
   image?: HTMLImageElement | HTMLCanvasElement;
@@ -68,7 +68,95 @@ function drawImageCoverPanZoom(
   ctx.restore();
 }
 
-// Helper 1: High-Contrast Fine Line-Art Coconut Palm Tree Canopy
+// Helper 1: Goan Beach Town Scenery Canvas Backdrop Artwork
+function drawGoanBeachTownCanvasBackdrop(ctx: CanvasRenderingContext2D, width: number, height: number) {
+  ctx.save();
+
+  // Golden Hour Sunset Sky Gradient
+  const skyGrad = ctx.createLinearGradient(0, 0, 0, height * 0.55);
+  skyGrad.addColorStop(0, "#FFF5E6");
+  skyGrad.addColorStop(0.5, "#FDE2C3");
+  skyGrad.addColorStop(1, "#F7CF9E");
+  ctx.fillStyle = skyGrad;
+  ctx.fillRect(0, 0, width, height);
+
+  // Glowing Setting Sun Disk
+  ctx.fillStyle = COLOR_SUN_GOLD;
+  ctx.globalAlpha = 0.85;
+  ctx.beginPath();
+  ctx.arc(width * 0.75, height * 0.28, 48, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Sun Glow Halo
+  ctx.fillStyle = "rgba(245, 194, 66, 0.25)";
+  ctx.beginPath();
+  ctx.arc(width * 0.75, height * 0.28, 90, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1.0;
+
+  // Distant Goan Hills Silhouette
+  ctx.fillStyle = "rgba(22, 59, 112, 0.12)";
+  ctx.beginPath();
+  ctx.moveTo(0, height * 0.42);
+  ctx.quadraticCurveTo(width * 0.25, height * 0.32, width * 0.5, height * 0.4);
+  ctx.quadraticCurveTo(width * 0.75, height * 0.35, width, height * 0.44);
+  ctx.lineTo(width, height);
+  ctx.lineTo(0, height);
+  ctx.closePath();
+  ctx.fill();
+
+  // Goan Villa & Church Bell Tower Silhouettes
+  ctx.strokeStyle = "rgba(13, 43, 82, 0.25)";
+  ctx.lineWidth = 1.8;
+  ctx.fillStyle = "rgba(253, 251, 247, 0.85)";
+
+  // Villa 1
+  ctx.fillRect(width * 0.65, height * 0.38, 70, 40);
+  ctx.strokeRect(width * 0.65, height * 0.38, 70, 40);
+  // Roof
+  ctx.fillStyle = COLOR_VIVID_RED;
+  ctx.beginPath();
+  ctx.moveTo(width * 0.64, height * 0.38);
+  ctx.lineTo(width * 0.685, height * 0.3);
+  ctx.lineTo(width * 0.73, height * 0.38);
+  ctx.closePath();
+  ctx.fill();
+
+  // Villa 2 (Church Arch)
+  ctx.fillStyle = "rgba(253, 251, 247, 0.85)";
+  ctx.fillRect(width * 0.76, height * 0.34, 45, 55);
+  ctx.strokeRect(width * 0.76, height * 0.34, 45, 55);
+  // Church Tower Arch Apex
+  ctx.fillStyle = COLOR_VIVID_RED;
+  ctx.beginPath();
+  ctx.moveTo(width * 0.75, height * 0.34);
+  ctx.lineTo(width * 0.7825, height * 0.26);
+  ctx.lineTo(width * 0.815, height * 0.34);
+  ctx.closePath();
+  ctx.fill();
+
+  // Ocean Shoreline Water Gradient
+  const oceanY = height * 0.48;
+  const oceanGrad = ctx.createLinearGradient(0, oceanY, 0, height);
+  oceanGrad.addColorStop(0, "rgba(22, 59, 112, 0.35)");
+  oceanGrad.addColorStop(0.5, "rgba(13, 43, 82, 0.2)");
+  oceanGrad.addColorStop(1, "rgba(247, 234, 205, 0.6)");
+  ctx.fillStyle = oceanGrad;
+  ctx.fillRect(0, oceanY, width, height - oceanY);
+
+  // Shoreline Wave Linework
+  ctx.strokeStyle = COLOR_AZULEJO_BLUE;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let x = 0; x <= width; x += 60) {
+    ctx.quadraticCurveTo(x + 30, oceanY + 15, x + 60, oceanY + 5);
+  }
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 2: High-Contrast Fine Line-Art Coconut Palm Tree Canopy
 function drawLineArtPalmCanopy(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -126,7 +214,7 @@ function drawLineArtPalmCanopy(
   ctx.restore();
 }
 
-// Helper 2: High-Vibrancy Azulejo Ceramic Rosette Motif
+// Helper 3: High-Vibrancy Azulejo Ceramic Rosette Motif
 function drawAzulejoCornerRosette(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -183,7 +271,7 @@ function drawAzulejoCornerRosette(
   ctx.restore();
 }
 
-// Helper 3: Fine Line-Art Goan Fishing Boat Silhouette
+// Helper 4: Fine Line-Art Goan Fishing Boat Silhouette
 function drawLineArtFishingBoat(ctx: CanvasRenderingContext2D, x: number, y: number, scale = 1, color = COLOR_DEEP_BLUE) {
   ctx.save();
   ctx.translate(x, y);
@@ -214,7 +302,7 @@ function drawLineArtFishingBoat(ctx: CanvasRenderingContext2D, x: number, y: num
   ctx.restore();
 }
 
-// Helper 4: Fine Line-Art Beach Umbrella
+// Helper 5: Fine Line-Art Beach Umbrella
 function drawLineArtBeachUmbrella(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -259,7 +347,7 @@ function drawLineArtBeachUmbrella(
   ctx.restore();
 }
 
-// Helper 5: Fine Line-Art Straw Sun Hat Accent
+// Helper 6: Fine Line-Art Straw Sun Hat Accent
 function drawLineArtSunHat(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -294,7 +382,7 @@ function drawLineArtSunHat(
   ctx.restore();
 }
 
-// Helper 6: Shoreline Waves Linework
+// Helper 7: Shoreline Waves Linework
 function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, width: number) {
   ctx.save();
   ctx.strokeStyle = COLOR_DEEP_BLUE;
@@ -315,7 +403,7 @@ function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, wid
   ctx.restore();
 }
 
-// Helper 7: Official Goan Heritage Stamp Seal
+// Helper 8: Official Goan Heritage Stamp Seal
 function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: number) {
   ctx.save();
   ctx.translate(x, y);
@@ -349,7 +437,7 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.restore();
 }
 
-// Helper 8: Connected Member Journey Route Path for Team Pass
+// Helper 9: Connected Member Journey Route Path for Team Pass
 function drawConnectedMemberRoutePath(
   ctx: CanvasRenderingContext2D,
   startX: number,
@@ -406,13 +494,8 @@ export function renderFormatA(
   const centerX = size / 2;
   const centerY = size / 2 - 20;
 
-  // Rich Multi-Stage Warm Sand & Sun-Gold Background Radial Gradient
-  const bgGrad = ctx.createRadialGradient(centerX, centerY, 100, centerX, centerY, 680);
-  bgGrad.addColorStop(0, "#FFFDF7");
-  bgGrad.addColorStop(0.6, "#F9EFD9");
-  bgGrad.addColorStop(1, "#EED8AC");
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, size, size);
+  // Rich Goan Beach Town Scenery Backdrop
+  drawGoanBeachTownCanvasBackdrop(ctx, size, size);
 
   // 4-Corner Azulejo Ceramic Rosettes
   drawAzulejoCornerRosette(ctx, 25, 25, 80, false, false);
@@ -450,7 +533,7 @@ export function renderFormatA(
     ctx.fillStyle = COLOR_VIVID_RED;
     ctx.font = "bold 32px Playfair Display, serif";
     ctx.textAlign = "center";
-    ctx.fillText("DROP PHOTO HERE", centerX, centerY);
+    ctx.fillText("UPLOAD YOUR PHOTO", centerX, centerY);
   }
   ctx.restore();
 
@@ -567,9 +650,8 @@ export function renderFormatB(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Sand Background Fill
-  ctx.fillStyle = COLOR_SAND_BG;
-  ctx.fillRect(0, 0, width, height);
+  // Rich Goan Beach Town Scenery Backdrop
+  drawGoanBeachTownCanvasBackdrop(ctx, width, height);
 
   // Top Deep Ocean Blue Header Hero Block
   const headerH = 115;
@@ -769,9 +851,8 @@ export function renderFormatC(
 
   ctx.clearRect(0, 0, width, height);
 
-  // Sand Background Fill
-  ctx.fillStyle = COLOR_SAND_BG;
-  ctx.fillRect(0, 0, width, height);
+  // Rich Goan Beach Town Scenery Backdrop
+  drawGoanBeachTownCanvasBackdrop(ctx, width, height);
 
   // Top Deep Ocean Blue Header Block
   const headerH = 120;
