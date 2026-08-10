@@ -182,7 +182,7 @@ export default function TeamPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF4E8] bg-mesh-goa bg-grain py-10 px-4 sm:px-6 lg:px-8 text-[#1F2421]">
+    <div className="min-h-screen bg-transparent py-10 px-4 sm:px-6 lg:px-8 text-[#121B2D]">
       <div className="mx-auto max-w-6xl space-y-8">
         
         {/* Header */}

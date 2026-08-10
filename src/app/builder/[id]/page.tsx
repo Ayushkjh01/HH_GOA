@@ -113,7 +113,7 @@ export default function BuilderProfilePage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF4E8] bg-mesh-goa bg-grain py-12 px-4 sm:px-6 lg:px-8 text-[#1F2421]">
+    <div className="min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8 text-[#121B2D]">
       <div className="mx-auto max-w-4xl space-y-8">
         
         {/* Navigation back */}

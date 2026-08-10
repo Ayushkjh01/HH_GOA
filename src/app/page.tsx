@@ -4,7 +4,7 @@ import { GoaBeachStamp, AzulejoTilePattern, GoanWindowBalcao, GoanHeritagePalm, 
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden bg-[#FDFBF7] text-[#121B2D]">
+    <div className="relative overflow-hidden bg-transparent text-[#121B2D]">
       
       {/* Top Azulejo Decorative Tile Border */}
       <AzulejoTilePattern className="w-full" />
