@@ -465,7 +465,7 @@ export function renderFormatB(
   ctx.font = "700 13px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_WHITE;
   ctx.textAlign = "right";
-  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 100, headerH / 2);
+  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 145, headerH / 2);
   ctx.restore();
 
   // User Photo Frame
@@ -684,7 +684,7 @@ export function renderFormatC(
   ctx.font = "700 13px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_WHITE;
   ctx.textAlign = "right";
-  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 100, headerH / 2);
+  ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 145, headerH / 2);
   ctx.restore();
 
   // Team Name Section Bar (High Contrast Panel)
