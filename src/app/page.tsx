@@ -32,11 +32,11 @@ export default function LandingPage() {
         </div>
 
         {/* Hero Title & Taglines */}
-        <div className="mt-8 text-center space-y-6 max-w-4xl mx-auto">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight text-[#1F2421] sm:text-6xl lg:text-7xl leading-[1.1]">
+        <div className="mt-8 text-center space-y-6 max-w-4xl mx-auto px-2">
+          <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#1F2421] leading-[1.15] text-center w-full max-w-full overflow-hidden">
             <span className="block text-[#1F2421]">Frame in Goa</span>
-            <span className="block mt-2 text-[#D9532F]">
-              HackerHouse <span className="font-devanagari text-[#D9532F]">गोवा</span>
+            <span className="block mt-1.5 sm:mt-2 text-[#D9532F] break-words">
+              HackerHouse <span className="font-devanagari text-[#D9532F] inline-block">गोवा</span>
             </span>
           </h1>
 

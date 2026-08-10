@@ -34,7 +34,7 @@ export function Navbar() {
                 गोवा
               </span>
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-mono-code tracking-widest text-[#0F4C5C] uppercase font-bold">
+            <div className="hidden xs:flex items-center gap-2 text-[10px] font-mono-code tracking-widest text-[#0F4C5C] uppercase font-bold">
               <span>28–31 OCT 2026</span>
               <span className="text-[#D9532F]">•</span>
               <span className="text-[#D9532F]">2:47 PM Studio</span>
