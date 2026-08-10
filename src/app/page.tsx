@@ -53,20 +53,20 @@ export default function Home() {
 
           {/* Primary Action Buttons */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/pass" className="goa-btn-primary w-full sm:w-auto text-base py-3.5 px-7">
-              <IdCard className="h-5 w-5 text-white" />
-              <span>Build ID Card (Format B)</span>
+            <Link href="/frame" className="goa-btn-primary w-full sm:w-auto text-base py-3.5 px-7">
+              <Frame className="h-5 w-5 text-white" />
+              <span>PFP Overlay (Format A)</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
-            <Link href="/frame" className="goa-btn-secondary w-full sm:w-auto text-base py-3.5 px-7">
-              <Frame className="h-5 w-5 text-[#A63A2B]" />
-              <span>PFP Overlay (Format A)</span>
+            <Link href="/pass" className="goa-btn-secondary w-full sm:w-auto text-base py-3.5 px-7">
+              <IdCard className="h-5 w-5 text-[#A63A2B]" />
+              <span>Builder ID Card (Format B)</span>
             </Link>
 
             <Link href="/team" className="goa-btn-secondary w-full sm:w-auto text-base py-3.5 px-6">
               <Users className="h-5 w-5 text-[#1B2A4A]" />
-              <span>Team Pass</span>
+              <span>Team Pass (Format C)</span>
             </Link>
           </div>
 
