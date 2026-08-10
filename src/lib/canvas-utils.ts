@@ -1,4 +1,4 @@
-// Canvas Rendering Engine for HH Goa 2026 — High-Vibrancy Social Media Export Artwork
+// Canvas Rendering Engine for HH Goa 2026 — High-Vibrancy & Rich Visual Artwork Export
 
 export interface RenderOptionsFormatA {
   image?: HTMLImageElement | HTMLCanvasElement;
@@ -183,7 +183,118 @@ function drawAzulejoCornerRosette(
   ctx.restore();
 }
 
-// Helper 3: Shoreline Waves Linework
+// Helper 3: Fine Line-Art Goan Fishing Boat Silhouette
+function drawLineArtFishingBoat(ctx: CanvasRenderingContext2D, x: number, y: number, scale = 1, color = COLOR_DEEP_BLUE) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.2;
+  ctx.fillStyle = COLOR_SUN_GOLD;
+
+  // Boat Hull
+  ctx.beginPath();
+  ctx.moveTo(-35, 0);
+  ctx.quadraticCurveTo(0, 18, 35, 0);
+  ctx.lineTo(25, -8);
+  ctx.lineTo(-25, -8);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Mast & Oar
+  ctx.beginPath();
+  ctx.moveTo(0, -8);
+  ctx.lineTo(0, -32);
+  ctx.moveTo(0, -28);
+  ctx.lineTo(16, -16);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 4: Fine Line-Art Beach Umbrella
+function drawLineArtBeachUmbrella(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  scale = 1,
+  color = COLOR_DEEP_BLUE
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.2;
+
+  // Pole
+  ctx.beginPath();
+  ctx.moveTo(0, -30);
+  ctx.lineTo(0, 30);
+  ctx.stroke();
+
+  // Canopy Fill & Outline
+  ctx.fillStyle = "#FFFFFF";
+  ctx.beginPath();
+  ctx.moveTo(-35, -30);
+  ctx.quadraticCurveTo(0, -65, 35, -30);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Canopy Ribs
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 1.8;
+  ctx.beginPath();
+  ctx.moveTo(0, -58);
+  ctx.lineTo(0, -30);
+  ctx.moveTo(-18, -48);
+  ctx.quadraticCurveTo(-14, -38, -16, -30);
+  ctx.moveTo(18, -48);
+  ctx.quadraticCurveTo(14, -38, 16, -30);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 5: Fine Line-Art Straw Sun Hat Accent
+function drawLineArtSunHat(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  scale = 1,
+  color = COLOR_VIVID_RED
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "#FFFFFF";
+
+  ctx.beginPath();
+  ctx.ellipse(0, 5, 28, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, 14, Math.PI, 0);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(0, 3, 14, Math.PI * 0.8, Math.PI * 0.2, true);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+// Helper 6: Shoreline Waves Linework
 function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, width: number) {
   ctx.save();
   ctx.strokeStyle = COLOR_DEEP_BLUE;
@@ -204,7 +315,7 @@ function drawShorelineWaveLinework(ctx: CanvasRenderingContext2D, y: number, wid
   ctx.restore();
 }
 
-// Helper 4: Official Goan Heritage Stamp Seal
+// Helper 7: Official Goan Heritage Stamp Seal
 function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: number) {
   ctx.save();
   ctx.translate(x, y);
@@ -234,6 +345,45 @@ function drawGoanHeritageStampSeal(ctx: CanvasRenderingContext2D, x: number, y: 
   ctx.font = "bold 9px JetBrains Mono, monospace";
   ctx.fillStyle = COLOR_AZULEJO_BLUE;
   ctx.fillText("★ 2026 ★", 0, 18);
+
+  ctx.restore();
+}
+
+// Helper 8: Connected Member Journey Route Path for Team Pass
+function drawConnectedMemberRoutePath(
+  ctx: CanvasRenderingContext2D,
+  startX: number,
+  cardY: number,
+  cardWidth: number,
+  count: number
+) {
+  ctx.save();
+  ctx.strokeStyle = COLOR_VIVID_RED;
+  ctx.lineWidth = 3;
+  ctx.setLineDash([8, 6]);
+
+  const pathY = cardY + 140;
+
+  ctx.beginPath();
+  for (let i = 0; i < count; i++) {
+    const cardCenterX = startX + i * (cardWidth + 35) + cardWidth / 2;
+    if (i === 0) ctx.moveTo(cardCenterX, pathY);
+    else ctx.lineTo(cardCenterX, pathY);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Waypoint Compass Nodes
+  for (let i = 0; i < count; i++) {
+    const cardCenterX = startX + i * (cardWidth + 35) + cardWidth / 2;
+    ctx.fillStyle = COLOR_SUN_GOLD;
+    ctx.strokeStyle = COLOR_DEEP_BLUE;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cardCenterX, pathY, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
 
   ctx.restore();
 }
@@ -304,7 +454,7 @@ export function renderFormatA(
   }
   ctx.restore();
 
-  // High-Impact 3D Saturated Outer Ring (Vivid Red + Sun Gold + Ocean Blue Gradient)
+  // High-Impact 3D Saturated Outer Ring
   ctx.save();
   const ringWidth = 26;
   ctx.lineWidth = ringWidth;
@@ -443,6 +593,18 @@ export function renderFormatB(
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
 
+  // Rich Hand-Illustrated Artwork: Top Corner Palm Canopy
+  drawLineArtPalmCanopy(ctx, 45, 125, 0.9, COLOR_DEEP_BLUE, false);
+
+  // Rich Hand-Illustrated Artwork: Beach Umbrella & Fishing Boat Silhouettes
+  drawLineArtBeachUmbrella(ctx, width - 110, 155, 1.1, COLOR_DEEP_BLUE);
+  drawLineArtFishingBoat(ctx, width - 165, 235, 1.0, COLOR_DEEP_BLUE);
+
+  // Outer Card Border
+  ctx.strokeStyle = COLOR_DEEP_BLUE;
+  ctx.lineWidth = 4;
+  ctx.strokeRect(18, 18, width - 36, height - 36);
+
   // Header Title Inside Blue Hero Bar
   ctx.save();
   ctx.textBaseline = "middle";
@@ -462,11 +624,6 @@ export function renderFormatB(
   ctx.textAlign = "right";
   ctx.fillText("28–31 OCT 2026 • GOA, INDIA", width - 85, headerH / 2);
   ctx.restore();
-
-  // Outer Card Border
-  ctx.strokeStyle = COLOR_DEEP_BLUE;
-  ctx.lineWidth = 4;
-  ctx.strokeRect(18, 18, width - 36, height - 36);
 
   // Photo Frame Box
   const photoSize = 360;
@@ -528,7 +685,7 @@ export function renderFormatB(
   ctx.fillText(displayName.toUpperCase(), contentX, 212);
   ctx.restore();
 
-  // Role Pill (Vivid Sun-Gold Fill with Red Border)
+  // Role Pill
   ctx.save();
   const roleText = (options.role || "FULL-STACK ENGINEER").toUpperCase();
   ctx.font = "bold 14px JetBrains Mono, monospace";
@@ -638,6 +795,10 @@ export function renderFormatC(
   drawAzulejoCornerRosette(ctx, 20, height - 70, 50, false, true);
   drawAzulejoCornerRosette(ctx, width - 70, height - 70, 50, true, true);
 
+  // Rich Hand-Illustrated Accents: Palm Canopy Top Left & Straw Hat Top Right
+  drawLineArtPalmCanopy(ctx, 40, 130, 0.9, COLOR_DEEP_BLUE, false);
+  drawLineArtSunHat(ctx, width - 130, 80, 0.9, COLOR_VIVID_RED);
+
   // Outer Card Border
   ctx.strokeStyle = COLOR_DEEP_BLUE;
   ctx.lineWidth = 4;
@@ -655,12 +816,15 @@ export function renderFormatC(
   ctx.fillText("HackerHouse goa 2026 • DELEGATION PASS • 28–31 OCT 2026", width / 2, 92);
   ctx.restore();
 
-  // Render Team Members
+  // Render Team Members & Journey Route Path
   const memberCount = Math.min(Math.max(options.members.length, 2), 3);
   const cardWidth = memberCount === 2 ? 360 : 310;
   const cardHeight = 360;
   const startX = (width - (memberCount * cardWidth + (memberCount - 1) * 35)) / 2;
   const cardY = 160;
+
+  // Dotted Team Journey Route Path
+  drawConnectedMemberRoutePath(ctx, startX, cardY, cardWidth, memberCount);
 
   options.members.slice(0, memberCount).forEach((m, idx) => {
     const cardX = startX + idx * (cardWidth + 35);

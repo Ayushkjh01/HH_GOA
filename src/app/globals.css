@@ -13,6 +13,11 @@
 
   body {
     background-color: var(--bg-whitewash);
+    background-image: linear-gradient(to bottom, rgba(253, 251, 247, 0.88), rgba(253, 251, 247, 0.95)), url('/goan_beach_town_bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--text-midnight);
     font-family: var(--font-space), sans-serif;
   }
