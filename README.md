@@ -9,7 +9,7 @@
   </p>
 
   <p>
-    <a href="https://hh-goa.vercel.app" target="_blank"><img src="https://img.shields.io/badge/🌐_Live_Website-hh--goa.vercel.app-A63A2B?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Website" /></a>
+    <a href="https://hh-goa-2026-delta.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/🌐_Live_Website-hh--goa--2026--delta.vercel.app-A63A2B?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Website" /></a>
   </p>
 
   <p>
@@ -20,11 +20,11 @@
   </p>
 
   <p>
-    <a href="https://hh-goa.vercel.app"><b>🚀 Open Live Web App</b></a> •
+    <a href="https://hh-goa-2026-delta.vercel.app/"><b>🚀 Launch Live Web Application</b></a> •
     <a href="#-key-features">Key Features</a> •
     <a href="#-formats--tools">Formats & Tools</a> •
     <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-local-development">Local Setup</a>
+    <a href="#-local-development-optional">Local Setup</a>
   </p>
 
   ---
@@ -32,9 +32,9 @@
 
 ## 🌐 Live Web Access
 
-You do **not** need to install or run anything locally to use the app! You can launch and use the live web application directly in your browser:
+Experience the application live in your browser:
 
-👉 **[Launch HackerHouse Goa Web App (hh-goa.vercel.app)](https://hh-goa.vercel.app)**
+👉 **[https://hh-goa-2026-delta.vercel.app/](https://hh-goa-2026-delta.vercel.app/)**
 
 ---
 
