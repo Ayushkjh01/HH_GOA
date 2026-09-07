@@ -9,6 +9,10 @@
   </p>
 
   <p>
+    <a href="https://hh-goa.vercel.app" target="_blank"><img src="https://img.shields.io/badge/🌐_Live_Website-hh--goa.vercel.app-A63A2B?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Website" /></a>
+  </p>
+
+  <p>
     <a href="https://github.com/Ayushkjh01/HH_GOA/stargazers"><img src="https://img.shields.io/github/stars/Ayushkjh01/HH_GOA?style=for-the-badge&color=A63A2B" alt="Stars" /></a>
     <a href="https://github.com/Ayushkjh01/HH_GOA/network/members"><img src="https://img.shields.io/github/forks/Ayushkjh01/HH_GOA?style=for-the-badge&color=2B4C7E" alt="Forks" /></a>
     <a href="https://github.com/Ayushkjh01/HH_GOA/issues"><img src="https://img.shields.io/github/issues/Ayushkjh01/HH_GOA?style=for-the-badge&color=1B2A4A" alt="Issues" /></a>
@@ -16,15 +20,23 @@
   </p>
 
   <p>
+    <a href="https://hh-goa.vercel.app"><b>🚀 Open Live Web App</b></a> •
     <a href="#-key-features">Key Features</a> •
     <a href="#-formats--tools">Formats & Tools</a> •
     <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-getting-started">Getting Started</a> •
-    <a href="#-deployment">Deployment</a>
+    <a href="#-local-development">Local Setup</a>
   </p>
 
   ---
 </div>
+
+## 🌐 Live Web Access
+
+You do **not** need to install or run anything locally to use the app! You can launch and use the live web application directly in your browser:
+
+👉 **[Launch HackerHouse Goa Web App (hh-goa.vercel.app)](https://hh-goa.vercel.app)**
+
+---
 
 ## 🎨 Overview
 
@@ -94,13 +106,9 @@ HH_GOA/
 
 ---
 
-## 💻 Getting Started
+## 💻 Local Development (Optional)
 
-### Prerequisites
-- **Node.js**: `v18.0.0` or higher
-- **npm** / **yarn** / **pnpm** / **bun**
-
-### Installation
+If you are a developer looking to contribute or run the project locally on your machine:
 
 1. **Clone the repository:**
    ```bash
@@ -119,28 +127,7 @@ HH_GOA/
    ```
 
 4. **Open in Browser:**
-   Visit [http://localhost:3000](http://localhost:3000) to view the app locally.
-
----
-
-## 🚀 Build & Production Deployment
-
-To test the optimized production build locally:
-
-```bash
-# Build the application
-npm run build
-
-# Start the production server
-npm start
-```
-
-### Deploying to Vercel
-
-This repository is optimized for one-click deployment on [Vercel](https://vercel.com/):
-
-1. Import repository `HH_GOA` at [vercel.com/new](https://vercel.com/new).
-2. Click **Deploy**.
+   Visit `http://localhost:3000` to view the app locally.
 
 ---
 
